@@ -7,4 +7,4 @@
 ### Переход к лабораторным работам
 
 #### 1.[Лабораторная работа - Классы и Объекты ](https://github.com/rottesy/allLabs3Sem/tree/main/lab1)
-
+#### 2.[Лабораторная работа - Дружественные функции.Перегрузка операций](https://github.com/rottesy/allLabs3Sem/tree/main/lab2)
