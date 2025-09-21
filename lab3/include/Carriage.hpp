@@ -1,0 +1,22 @@
+#ifndef CARRIAGE_HPP
+#define CARRIAGE_HPP
+
+#include "Transport.hpp"
+
+class Carriage : public Transport
+{
+  private:
+    int numberOfHorses;
+
+  public:
+    using Transport::Transport;
+    Carriage(double speed, double cost, double cap, int horses);
+
+    [[nodiscard]] double calculateCost(double distance, double weight) const override;
+    [[nodiscard]] double calculatePassengerCost(double distance, int passengers) const override;
+    void displayInfo() const override;
+    [[nodiscard]] const char *getType() const override;
+    void inputDetails() override;
+};
+
+#endif
