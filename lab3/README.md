@@ -7,4 +7,4 @@
 ### Создать базовый класс «транспортное средство» и производные классы «Автомобиль», «Велосипед», «Повозка». Подсчитать время и стоимость перевозки пассажиров и грузов каждым транспортным средством.
 
 
-## [Ссылка на результат SonarQube Cloud](https://sonarcloud.io/project/overview?id=rottesy_allLabs3Sem)
+## Ссылка на результат SonarQube Cloud [тут](https://sonarcloud.io/project/overview?id=rottesy_allLabs3Sem)
