@@ -6,4 +6,4 @@
 Память под массивы отводить динамически. Предоставить конструктор копирования. Определить friend функции для операций ввода-вывода в поток.
 
 
-## Ссылка на результат SonarQube Cloud [тут]() 
+## Ссылка на результат SonarQube Cloud [тут](https://sonarcloud.io/project/overview?id=rottesy_allLabs3Sem) 
