@@ -5,32 +5,27 @@
 #include "../include/utils.hpp"
 #include <iostream>
 
+
 void FamilyProgram::expandMembers()
 {
-
-    if (size >= capacity) 
+    size = std::max(size, 0);
+    if (size + 1 >= capacity)
     {
         capacity = (capacity == 0) ? 2 : capacity * 2;
         auto **newMembers = new Ancestor *[capacity];
-
-        
         for (int i = 0; i < size; i++)
         {
             newMembers[i] = familyMemebrs[i];
         }
-
-        
         delete[] familyMemebrs;
         familyMemebrs = newMembers;
     }
-    
+    size++;
 }
 
 void FamilyProgram::addMember()
 {
-    if (size >= capacity) {
-        expandMembers();
-    }
+    expandMembers();
 
     std::cout << "\n=== ADD FAMILY MEMBER ===" << "\n";
     std::cout << "1. Add Kid" << "\n";
@@ -52,8 +47,7 @@ void FamilyProgram::addMember()
     switch (opt)
     {
         case 1:
-            familyMemebrs[size] = new Kid(name);
-            size++;
+            familyMemebrs[size - 1] = new Kid(name);
             delete[] name;
             break;
 
@@ -63,8 +57,7 @@ void FamilyProgram::addMember()
             std::cout << "Enter patronymic: ";
             std::cin.getline(patronymic, 100);
 
-            familyMemebrs[size] = new GrandSon(name, patronymic);
-            size++;
+            familyMemebrs[size - 1] = new GrandSon(name, patronymic);
             delete[] name;
             delete[] patronymic;
             break;
