@@ -6,7 +6,7 @@ class FamilyProgram
   private:
     class Ancestor **familyMemebrs = nullptr;
     int size = 0;
-    int capacity = 0;
+    int capacity = 1;
 
     void expandMembers();
     void addMember();

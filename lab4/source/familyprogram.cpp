@@ -9,9 +9,9 @@
 void FamilyProgram::expandMembers()
 {
     size = std::max(size, 0);
-    if (size + 1 >= capacity)
+    if (size + 1 == capacity)
     {
-        capacity = (capacity == 0) ? 2 : capacity * 2;
+        capacity*=2;
         auto **newMembers = new Ancestor *[capacity];
         for (int i = 0; i < size; i++)
         {
