@@ -38,7 +38,7 @@ void FamilyProgram::addMember()
 
     if (myStrlen(name) == 0)
     {
-        std::cout << "Error: Name cannot be empty!" << "\n";
+        std::cout << "Error: Name cannot be empty!!" << "\n";
         size--;
         return;
     }
