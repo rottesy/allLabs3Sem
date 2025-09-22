@@ -14,7 +14,7 @@ class FamilyProgram
   public:
     FamilyProgram() = default;
     ~FamilyProgram();
-    
+
     void addFamilyMember();
     void showAllMembers() const;
     void clear();

@@ -1,30 +1,36 @@
 #include "../include/familyprogram.hpp"
 #include "../include/ancestor.hpp"
-#include "../include/kid.hpp"
 #include "../include/grandson.hpp"
+#include "../include/kid.hpp"
 #include "../include/utils.hpp"
 #include <iostream>
 
 void FamilyProgram::expandMembers()
 {
-    size = std::max(size, 0);
-    if (size + 1 >= capacity)
+
+    if (size >= capacity) 
     {
         capacity = (capacity == 0) ? 2 : capacity * 2;
         auto **newMembers = new Ancestor *[capacity];
+
+        
         for (int i = 0; i < size; i++)
         {
             newMembers[i] = familyMemebrs[i];
         }
+
+        
         delete[] familyMemebrs;
         familyMemebrs = newMembers;
     }
-    size++;
+    
 }
 
 void FamilyProgram::addMember()
 {
-    expandMembers();
+    if (size >= capacity) {
+        expandMembers();
+    }
 
     std::cout << "\n=== ADD FAMILY MEMBER ===" << "\n";
     std::cout << "1. Add Kid" << "\n";
@@ -46,7 +52,8 @@ void FamilyProgram::addMember()
     switch (opt)
     {
         case 1:
-            familyMemebrs[size - 1] = new Kid(name);
+            familyMemebrs[size] = new Kid(name);
+            size++;
             delete[] name;
             break;
 
@@ -56,7 +63,8 @@ void FamilyProgram::addMember()
             std::cout << "Enter patronymic: ";
             std::cin.getline(patronymic, 100);
 
-            familyMemebrs[size - 1] = new GrandSon(name, patronymic);
+            familyMemebrs[size] = new GrandSon(name, patronymic);
+            size++;
             delete[] name;
             delete[] patronymic;
             break;
