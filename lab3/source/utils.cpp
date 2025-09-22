@@ -33,5 +33,5 @@ void demonstrateTransport(const Transport *transport, double distance, double we
         cout << "Transportation cost for " << passengers << " passengers: " << passengerCost << " BYN" << "\n";
     }
 
-    cout << "=============================" << "\n\n";
+    cout << "==============================" << "\n\n";
 }
