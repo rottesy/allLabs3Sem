@@ -65,7 +65,7 @@ void FamilyProgram::addMember()
         default:
             delete[] name;
             size--;
-            std::cout << "Error: Invalid option!" << "\n";
+            std::cout << "Error: Invalid option!!" << "\n";
             break;
     }
 }
