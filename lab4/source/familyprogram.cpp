@@ -71,7 +71,7 @@ void FamilyProgram::addMember()
     }
 }
 
-FamilyProgram::~FamilyProgram() { clear(); }
+// FamilyProgram::~FamilyProgram() { clear(); }
 
 void FamilyProgram::addFamilyMember() { addMember(); }
 
