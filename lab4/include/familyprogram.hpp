@@ -15,6 +15,9 @@ class FamilyProgram
     FamilyProgram() = default;
     ~FamilyProgram();
 
+    FamilyProgram(const FamilyProgram&) = delete;
+    FamilyProgram& operator=(const FamilyProgram&) = delete;
+
     void addFamilyMember();
     void showAllMembers() const;
     void clear();
