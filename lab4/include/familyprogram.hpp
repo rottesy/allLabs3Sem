@@ -13,7 +13,7 @@ class FamilyProgram
 
   public:
     FamilyProgram() = default;
-    //~FamilyProgram();
+    ~FamilyProgram();
 
     void addFamilyMember();
     void showAllMembers() const;

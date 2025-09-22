@@ -5,13 +5,12 @@
 #include "../include/utils.hpp"
 #include <iostream>
 
-
 void FamilyProgram::expandMembers()
 {
     size = std::max(size, 0);
     if (size + 1 == capacity)
     {
-        capacity*=2;
+        capacity *= 2;
         auto **newMembers = new Ancestor *[capacity];
         for (int i = 0; i < size; i++)
         {
@@ -71,7 +70,7 @@ void FamilyProgram::addMember()
     }
 }
 
-// FamilyProgram::~FamilyProgram() { clear(); }
+FamilyProgram::~FamilyProgram() { clear(); }
 
 void FamilyProgram::addFamilyMember() { addMember(); }
 
