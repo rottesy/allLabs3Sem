@@ -2,11 +2,11 @@
 #include "../include/utils.hpp"
 #include <iostream>
 
-
 using namespace std;
 
 int main()
 {
+    system("cls");
     double distance = 0;
     double weight = 0;
     int passengers = 0;

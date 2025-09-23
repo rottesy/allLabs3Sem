@@ -7,7 +7,7 @@
 class Car : public Transport
 {
   private:
-    int maxPassengers = kCarMaxPass;
+    int maxPassengers = CAR_MAX_PASS;
 
   public:
     using Transport::Transport;

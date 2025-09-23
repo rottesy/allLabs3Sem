@@ -7,7 +7,7 @@
 class Carriage : public Transport
 {
   private:
-    int numberOfHorses = kNumberOfHorses;
+    int numberOfHorses = NUMBER_OF_HORSES;
 
   public:
     using Transport::Transport;
@@ -17,7 +17,6 @@ class Carriage : public Transport
     [[nodiscard]] double calculatePassengerCost(double distance, int passengers) const override;
     void displayInfo() const override;
     [[nodiscard]] const char *getType() const override;
-    
 };
 
 #endif

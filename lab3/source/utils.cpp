@@ -7,11 +7,11 @@ using namespace std;
 void inputTransportationDetails(double &distance, double &weight, int &passengers)
 {
     cout << "=== Enter Transportation Details ===" << "\n";
-    
+
     distance = getNumber("Enter distance (km): ");
-    
+
     weight = getNumber("Enter cargo weight (kg): ");
-    
+
     passengers = getNumber("Enter number of passengers: ");
     cout << "\n";
 }
@@ -53,7 +53,7 @@ int getNumber(const char *msg)
             std::cout << "\nError, invalid input. Please try again: ";
             continue;
         }
-        if ((std::cin >> num).good() && std::cin.get() == '\n' && (kMinInt <= num) && (num <= kMaxInt))
+        if ((std::cin >> num).good() && std::cin.get() == '\n' && (MIN_INT <= num) && (num <= MAX_INT))
         {
             return num;
         }
