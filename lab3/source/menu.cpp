@@ -2,6 +2,7 @@
 #include "../include/Bicycle.hpp"
 #include "../include/Car.hpp"
 #include "../include/Carriage.hpp"
+#include "../include/utils.hpp"
 #include <iostream>
 
 using namespace std;
@@ -13,8 +14,7 @@ Transport *createTransport()
     cout << "1. Car" << "\n";
     cout << "2. Bicycle" << "\n";
     cout << "3. Carriage" << "\n";
-    cout << "Enter your choice (1-3): ";
-    cin >> choice;
+    choice = getNumber("Enter your choice (1-3): ");
 
     Transport *transport = nullptr;
 

@@ -1,5 +1,6 @@
 #include "../include/Carriage.hpp"
 #include "../include/const.hpp"
+#include "../include/utils.hpp"
 #include <iostream>
 
 using namespace std;
@@ -37,6 +38,5 @@ const char *Carriage::getType() const { return "Carriage"; }
 void Carriage::inputDetails()
 {
     Transport::inputDetails();
-    cout << "Enter number of horses: ";
-    cin >> numberOfHorses;
+    numberOfHorses = getNumber("Enter number of horses : ");
 }

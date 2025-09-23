@@ -1,5 +1,6 @@
 #include "../include/Transport.hpp"
 #include "../include/const.hpp"
+#include "../include/utils.hpp"
 
 using namespace std;
 
@@ -39,10 +40,10 @@ const char *Transport::getType() const { return "Transport vehicle"; }
 
 void Transport::inputDetails()
 {
-    cout << "Enter speed (km/h): ";
-    cin >> speedPerH;
-    cout << "Enter cost per km (BYN): ";
-    cin >> costPerKm;
-    cout << "Enter load capacity (kg): ";
-    cin >> capacity;
+    
+    speedPerH = getNumber("Enter speed (km/h): ");
+    
+    costPerKm = getNumber("Enter cost per km (BYN): ");
+    
+    capacity = getNumber("Enter load capacity (kg): ");
 }

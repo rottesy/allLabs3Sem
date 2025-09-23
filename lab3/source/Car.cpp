@@ -1,5 +1,6 @@
 #include "../include/Car.hpp"
 #include "../include/const.hpp"
+#include "../include/utils.hpp"
 #include "iostream"
 
 using namespace std;
@@ -39,6 +40,5 @@ const char *Car::getType() const { return "Car"; }
 void Car::inputDetails()
 {
     Transport::inputDetails();
-    cout << "Enter max number of passengers: ";
-    cin >> maxPassengers;
+    maxPassengers = getNumber("Enter max number of passengers : ");
 }
