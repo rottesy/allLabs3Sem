@@ -21,22 +21,17 @@ Transport *createTransport()
     switch (choice)
     {
         case 1:
-            transport = new Car(0, 0, 0, 0);
+            transport = new Car;
             break;
         case 2:
-            transport = new Bicycle(0, 0, 0);
+            transport = new Bicycle;
             break;
         case 3:
-            transport = new Carriage(0, 0, 0, 0);
+            transport = new Carriage;
             break;
         default:
-            cout << "Invalid choice! Using default transport." << "\n";
-            transport = new Transport(0, 0, 0);
+            cout << "Invalid choice!" << "\n";
     }
-
-    cout << "\nEnter details for " << transport->getType() << ":\n";
-    transport->inputDetails();
-    cout << "\n";
 
     return transport;
 }

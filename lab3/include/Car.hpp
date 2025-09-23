@@ -10,7 +10,7 @@ class Car : public Transport
 
   public:
     using Transport::Transport;
-    Car(double speed, double cost, double cap, int maxPass);
+    Car();
 
     [[nodiscard]] double calculateCost(double distance, double weight) const override;
     [[nodiscard]] double calculatePassengerCost(double distance, int passengers) const override;

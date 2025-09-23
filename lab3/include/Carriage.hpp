@@ -10,7 +10,7 @@ class Carriage : public Transport
 
   public:
     using Transport::Transport;
-    Carriage(double speed, double cost, double cap, int horses);
+    Carriage();
 
     [[nodiscard]] double calculateCost(double distance, double weight) const override;
     [[nodiscard]] double calculatePassengerCost(double distance, int passengers) const override;

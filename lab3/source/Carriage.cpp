@@ -5,8 +5,8 @@
 
 using namespace std;
 
-Carriage::Carriage(double speed, double cost, double cap, int horses)
-    : Transport(speed, cost, cap), numberOfHorses(horses)
+Carriage::Carriage()
+    : Transport(kCarriageSpeedInKm, kCarriageCostPerKm, kCarriageLoadCap), numberOfHorses(kNumberOfHorses)
 {
 }
 
@@ -17,7 +17,7 @@ double Carriage::calculateCost(double distance, double weight) const
         cout << "A carriage can't carry such a load!" << "\n";
         return -1;
     }
-    return distance * getCostPerKm() * (weight / WEIGHT_DIVISOR) * numberOfHorses * CARRIAGE_HORSE_FACTOR;
+    return distance * getCostPerKm() * (weight / WEIGHT_DIVISOR) * kNumberOfHorses * CARRIAGE_HORSE_FACTOR;
 }
 
 double Carriage::calculatePassengerCost(double distance, int passengers) const

@@ -5,33 +5,33 @@
 
 using namespace std;
 
-Car::Car(double speed, double cost, double cap, int maxPass) : Transport(speed, cost, cap), maxPassengers(maxPass) {}
+Car::Car() : Transport(kCarSpeedInKm, kCarCostPerKm, kCarLoadCap), maxPassengers(kCarMaxPass) {}
 
 double Car::calculateCost(double distance, double weight) const
 {
-    if (weight > getCapacity())
+    if (weight > kCarLoadCap)
     {
         cout << "A car can't carry such a load!!" << "\n";
         return -1;
     }
-    return distance * getCostPerKm() * (1 + weight / CAR_WEIGHT_FACTOR);
+    return distance * kCarCostPerKm * (1 + weight / CAR_WEIGHT_FACTOR);
 }
 
 double Car::calculatePassengerCost(double distance, int passengers) const
 {
-    if (passengers > maxPassengers)
+    if (passengers > kCarMaxPass)
     {
         cout << "A car can't carry that many passengers." << "\n";
         return -1;
     }
-    return distance * getCostPerKm() * passengers;
+    return distance * kCarCostPerKm * passengers;
 }
 
 void Car::displayInfo() const
 {
     cout << "Type: Car" << "\n";
     Transport::displayInfo();
-    cout << "Max number of passengers: " << maxPassengers << "\n";
+    cout << "Max number of passengers: " << kCarMaxPass << "\n";
     cout << "===" << "\n";
 }
 

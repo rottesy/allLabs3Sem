@@ -4,6 +4,7 @@
 
 using namespace std;
 
+Bicycle::Bicycle() : Transport(kBicycleSpeedInKm,kBicycleCostPerKm,kBicycleLoadCap) {}
 double Bicycle::calculateCost(double distance, double weight) const
 {
     if (weight > getCapacity())
