@@ -5,10 +5,7 @@
 
 using namespace std;
 
-Carriage::Carriage()
-    : Transport(kCarriageSpeedInKm, kCarriageCostPerKm, kCarriageLoadCap), numberOfHorses(kNumberOfHorses)
-{
-}
+Carriage::Carriage() : Transport(kCarriageSpeedInKm, kCarriageCostPerKm, kCarriageLoadCap) {}
 
 double Carriage::calculateCost(double distance, double weight) const
 {
