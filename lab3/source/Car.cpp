@@ -11,7 +11,7 @@ double Car::calculateCost(double distance, double weight) const
 {
     if (weight > getCapacity())
     {
-        cout << "A car can't carry such a load!" << "\n";
+        cout << "A car can't carry such a load!!" << "\n";
         return -1;
     }
     return distance * getCostPerKm() * (1 + weight / CAR_WEIGHT_FACTOR);
