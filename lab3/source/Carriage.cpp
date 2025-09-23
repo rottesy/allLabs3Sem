@@ -25,8 +25,6 @@ double Carriage::calculatePassengerCost(double distance, int passengers) const
 const char *Carriage::getType() const { return "Carriage"; }
 
 void Carriage::displayInfo() const {
-    cout << "Speed: " << getSpeed() << " km/h" << "\n";
-    cout << "Cost per km: " << getCostPerKm() << " BYN" << "\n";
-    cout << "Load capacity: " << getCapacity() << " kg" << "\n";
+    Transport::displayInfo();
     cout << "Number of horses : " << kNumberOfHorses <<"\n";
 }
