@@ -8,7 +8,7 @@
 void FamilyProgram::expandMembers()
 {
     size = std::max(size, 0);
-    if (size >= capacity)
+    if (size + 1>= capacity)
     {
         capacity *= 2;
         auto **newMembers = new Ancestor *[capacity];
@@ -46,7 +46,7 @@ void FamilyProgram::addMember()
     switch (opt)
     {
         case 1:
-            familyMemebrs[size] = new Kid(name);
+            familyMemebrs[size - 1] = new Kid(name);
             delete[] name;
             break;
 
@@ -56,7 +56,7 @@ void FamilyProgram::addMember()
             std::cout << "Enter patronymic: ";
             std::cin.getline(patronymic, 100);
 
-            familyMemebrs[size] = new GrandSon(name, patronymic);
+            familyMemebrs[size - 1] = new GrandSon(name, patronymic);
             delete[] name;
             delete[] patronymic;
             break;
