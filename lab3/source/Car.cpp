@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Car::Car() : Transport(kCarSpeedInKm, kCarCostPerKm, kCarLoadCap), maxPassengers(kCarMaxPass) {}
+Car::Car() : Transport(kCarSpeedInKm, kCarCostPerKm, kCarLoadCap) {}
 
 double Car::calculateCost(double distance, double weight) const
 {
