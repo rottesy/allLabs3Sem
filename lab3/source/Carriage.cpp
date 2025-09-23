@@ -14,7 +14,7 @@ double Carriage::calculateCost(double distance, double weight) const
 {
     if (weight > getCapacity())
     {
-        cout << "A carriage can't carry such a load!" << "\n";
+        cout << "A carriage can't carry such a load!!" << "\n";
         return -1;
     }
     return distance * getCostPerKm() * (weight / WEIGHT_DIVISOR) * numberOfHorses * CARRIAGE_HORSE_FACTOR;
