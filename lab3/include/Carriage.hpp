@@ -2,11 +2,12 @@
 #define CARRIAGE_HPP
 
 #include "Transport.hpp"
+#include "const.hpp"
 
 class Carriage : public Transport
 {
   private:
-    int numberOfHorses;
+    int numberOfHorses = kNumberOfHorses;
 
   public:
     using Transport::Transport;

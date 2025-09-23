@@ -2,11 +2,12 @@
 #define CAR_HPP
 
 #include "Transport.hpp"
+#include "const.hpp"
 
 class Car : public Transport
 {
   private:
-    int maxPassengers;
+    int maxPassengers = kCarMaxPass;
 
   public:
     using Transport::Transport;
