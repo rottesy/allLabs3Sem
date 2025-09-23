@@ -38,12 +38,3 @@ void Transport::displayInfo() const
 
 const char *Transport::getType() const { return "Transport vehicle"; }
 
-void Transport::inputDetails()
-{
-    
-    speedPerH = getNumber("Enter speed (km/h): ");
-    
-    costPerKm = getNumber("Enter cost per km (BYN): ");
-    
-    capacity = getNumber("Enter load capacity (kg): ");
-}

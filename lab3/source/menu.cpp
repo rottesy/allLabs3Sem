@@ -31,6 +31,9 @@ Transport *createTransport()
             break;
         default:
             cout << "Invalid choice!" << "\n";
+            cout << "Using car by default" << "\n";
+            transport = new Car;
+            break;
     }
 
     return transport;

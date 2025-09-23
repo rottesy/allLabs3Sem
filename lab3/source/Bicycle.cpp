@@ -25,11 +25,5 @@ double Bicycle::calculatePassengerCost(double distance, int passengers) const
     return distance * getCostPerKm();
 }
 
-void Bicycle::displayInfo() const
-{
-    cout << "Type: Bicycle" << "\n";
-    Transport::displayInfo();
-    cout << "===" << "\n";
-}
-
 const char *Bicycle::getType() const { return "Bicycle"; }
+

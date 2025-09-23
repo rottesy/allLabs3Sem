@@ -23,7 +23,6 @@ class Transport
     [[nodiscard]] virtual double calculatePassengerCost(double distance, int passengers) const;
     virtual void displayInfo() const;
     [[nodiscard]] virtual const char *getType() const;
-    virtual void inputDetails();
 };
 
 #endif

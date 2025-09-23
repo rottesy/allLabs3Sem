@@ -10,8 +10,8 @@ class Bicycle : public Transport
 
     [[nodiscard]] double calculateCost(double distance, double weight) const override;
     [[nodiscard]] double calculatePassengerCost(double distance, int passengers) const override;
-    void displayInfo() const override;
     [[nodiscard]] const char *getType() const override;
+    
 };
 
 #endif

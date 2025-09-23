@@ -17,7 +17,7 @@ class Carriage : public Transport
     [[nodiscard]] double calculatePassengerCost(double distance, int passengers) const override;
     void displayInfo() const override;
     [[nodiscard]] const char *getType() const override;
-    void inputDetails() override;
+    
 };
 
 #endif

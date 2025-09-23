@@ -27,18 +27,11 @@ double Car::calculatePassengerCost(double distance, int passengers) const
     return distance * kCarCostPerKm * passengers;
 }
 
-void Car::displayInfo() const
-{
-    cout << "Type: Car" << "\n";
-    Transport::displayInfo();
-    cout << "Max number of passengers: " << kCarMaxPass << "\n";
-    cout << "===" << "\n";
-}
-
 const char *Car::getType() const { return "Car"; }
 
-void Car::inputDetails()
-{
-    Transport::inputDetails();
-    maxPassengers = getNumber("Enter max number of passengers : ");
+void Car::displayInfo() const{
+    cout << "Speed: " << getSpeed() << " km/h" << "\n";
+    cout << "Cost per km: " << getCostPerKm() << " BYN" << "\n";
+    cout << "Load capacity: " << getCapacity() << " kg" << "\n";
+    cout << "Max pass: " << kCarMaxPass << "\n";
 }
