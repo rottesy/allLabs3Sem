@@ -10,3 +10,4 @@
 #### 2.[Лабораторная работа - Дружественные функции.Перегрузка операций](https://github.com/rottesy/allLabs3Sem/tree/main/lab2)
 #### 3.[Лабораторная работа - Наследование](https://github.com/rottesy/allLabs3Sem/tree/main/lab3)
 #### 4.[Лабораторная работа - Виртуальные фунуции. Абстрактные классы](https://github.com/rottesy/allLabs3Sem/tree/main/lab4)
+#### 5.[Лабораторная работа - Шаблоны функций и классов](https://github.com/rottesy/allLabs3Sem/tree/main/lab5)
