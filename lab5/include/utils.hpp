@@ -50,7 +50,7 @@ template <typename T> T findMin(const T *begin, const T *end)
     return minVal;
 }
 
-template <typename T> void inputArray(T* arr,int size)
+template <typename T> void inputArray(T *arr, int size)
 {
     std::cout << "Input " << size << " elements:\n";
     for (int i = 0; i < size; i++)
@@ -59,18 +59,5 @@ template <typename T> void inputArray(T* arr,int size)
         arr[i] = getInput<T>("");
     }
 }
-
-template <typename T> void displayArray(const T *arr, int size,const char* msg)
-{
-    std::cout << msg;
-    for (int i = 0; i < size; i++)
-    {
-        std::cout << arr[i] << " ";
-    }
-    std::cout << "\n";
-}
-
-
-
 
 #endif

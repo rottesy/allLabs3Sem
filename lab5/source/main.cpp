@@ -4,6 +4,7 @@
 
 int main()
 {
+    system("cls");
     int choice;
 
     do
