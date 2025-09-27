@@ -25,7 +25,7 @@ template <typename T> void handleArrayMenu(const char *typeName)
     }
 
     auto *arr = new T[size];
-    inputArray(arr, size);
+    inputArray(size, arr);
     printArray(arr, size);
 
     T minVal = findMin(arr, arr + size);
