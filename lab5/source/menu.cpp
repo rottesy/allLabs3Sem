@@ -24,7 +24,7 @@ template <typename T> void handleArrayMenu(const char *typeName)
         return;
     }
 
-    T *arr = new T[size];
+    auto *arr = new T[size];
     inputArray(arr, size);
     printArray(arr, size);
 
