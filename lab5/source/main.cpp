@@ -18,3 +18,9 @@ T findMin(const T* begin,const T* end)
     }
     return minVal;
 }
+
+int main()
+{
+    
+    return 0;
+}
