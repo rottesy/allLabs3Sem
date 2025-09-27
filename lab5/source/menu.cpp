@@ -25,8 +25,8 @@ template <typename T> void handleArrayMenu(const char *typeName)
     }
 
     auto *arr = new T[size];
-    inputArray(size, arr);
-    printArray(arr, size);
+    inputArray(arr, size);
+    displayArray(arr, size);
 
     T minVal = findMin(arr, arr + size);
     std::cout << "Minimum value: " << minVal << "\n";
@@ -34,9 +34,6 @@ template <typename T> void handleArrayMenu(const char *typeName)
     delete[] arr;
 }
 
-template void handleArrayMenu<int>(const char* typeName);
-template void handleArrayMenu<double>(const char* typeName);
-template void handleArrayMenu<char>(const char* typeName);
-
-
-
+template void handleArrayMenu<int>(const char *typeName);
+template void handleArrayMenu<double>(const char *typeName);
+template void handleArrayMenu<char>(const char *typeName);
