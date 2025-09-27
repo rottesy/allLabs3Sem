@@ -60,4 +60,14 @@ template <typename T> void inputArray(T *arr, int size)
     }
 }
 
+template <typename T> void displayArray(const T *arr, int size)
+{
+    std::cout << "Array: ";
+    for (int i = 0; i < size; i++)
+    {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << "\n";
+}
+
 #endif
