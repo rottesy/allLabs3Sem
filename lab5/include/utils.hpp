@@ -35,7 +35,7 @@ template <typename T> T findMin(const T *begin, const T *end)
 {
     if (begin == end || begin == nullptr || end == nullptr)
     {
-        std::cout << "Array is empty or invalid pointers" << "\n";
+        std::cout << "Array is empty or invalid pointers!" << "\n";
         return T();
     }
 
