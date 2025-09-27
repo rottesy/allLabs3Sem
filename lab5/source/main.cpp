@@ -1,26 +1,39 @@
+#include "../include/menu.hpp"
+#include "../include/utils.hpp"
 #include <iostream>
-
-template<typename T>
-T findMin(const T* begin,const T* end)
-{
-    if(begin == end)
-    {
-        std::cout << "Array cannot be empty" << "\n";
-    }
-
-    T minVal = *begin;
-    for (const T* it = begin + 1;it != end;it++)
-    {
-        if (*it > minVal)
-        {
-            minVal = *it;
-        }
-    }
-    return minVal;
-}
 
 int main()
 {
-    
+    int choice;
+
+    do
+    {
+        showMenu();
+        choice = getInput<int>("");
+
+        switch (choice)
+        {
+            case 1:
+                handleArrayMenu<int>("int");
+                break;
+
+            case 2:
+                handleArrayMenu<double>("double");
+                break;
+
+            case 3:
+                handleArrayMenu<char>("char");
+                break;
+
+            case 0:
+                std::cout << "Exiting program.\n";
+                break;
+
+            default:
+                std::cout << "Invalid choice!\n";
+        }
+
+    } while (choice != 0);
+
     return 0;
 }
