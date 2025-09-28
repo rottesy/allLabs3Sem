@@ -11,3 +11,4 @@
 #### 3.[Лабораторная работа - Наследование](https://github.com/rottesy/allLabs3Sem/tree/main/lab3)
 #### 4.[Лабораторная работа - Виртуальные фунуции. Абстрактные классы](https://github.com/rottesy/allLabs3Sem/tree/main/lab4)
 #### 5.[Лабораторная работа - Шаблоны функций и классов](https://github.com/rottesy/allLabs3Sem/tree/main/lab5)
+#### 6.[Лабораторная работа - Генерация и обработка исключительных ситуаций](https://github.com/rottesy/allLabs3Sem/tree/main/lab6)
