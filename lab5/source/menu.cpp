@@ -20,7 +20,7 @@ template <typename T> void handleArrayMenu(const char *typeName)
 
     if (size <= 0)
     {
-        std::cout << "Size must be positive\n";
+        std::cout << "Size must be positive!\n";
         return;
     }
 
