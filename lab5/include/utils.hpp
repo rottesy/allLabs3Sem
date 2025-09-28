@@ -62,7 +62,7 @@ template <typename T> void inputArray(T *array, int size)
 
 template <typename T> void displayArray(const T *array, int size)
 {
-    std::cout << "Array: ";
+    std::cout << " Array: ";
     for (int i = 0; i < size; i++)
     {
         std::cout << array[i] << " ";
