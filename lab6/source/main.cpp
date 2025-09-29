@@ -1,7 +1,31 @@
+#include "../include/menu.hpp"
+#include "../include/utils.hpp"
+#include "../include/exceptions.hpp"
 #include <iostream>
 
-int main()
-{
-    std::cout << "xd" << "\n";
+using namespace std;
+
+int main() {
+
+    try {
+        double distance = 0;
+        double weight = 0;
+        int passengers = 0;
+        inputTransportationDetails(distance, weight, passengers);
+
+        Transport *transport = createTransport();
+        demonstrateTransport(transport, distance, weight, passengers);
+        delete transport;
+        
+    } catch (const InvalidInputException& e) {
+        cout << "=== REGISTRATION ERROR ===" << "\n";
+        cout << e.what() << "\n";
+        cout << "Program terminated." << "\n";
+        return 1;
+    } catch (const std::exception& e) {
+        cout << "Error: " << e.what() << "\n";
+        return 1;
+    }
+
     return 0;
 }
