@@ -61,15 +61,18 @@ int getNumber(const char *msg)
     }
 }
 
-void validateString(const string& input, const string& fieldName) {
-    if (input.empty()) {
+void validateString(const string &input, [[maybe_unused]] const string_view &fieldName)
+{
+    if (input.empty())
+    {
         throw InvalidInputException(input, "Field cannot be empty");
     }
-    
-    for (char character : input) {
-        if (!(isdigit(character) || (character >= 'a' && character <= 'z') || (character >= 'A' && character <= 'Z'))) {
-            throw InvalidInputException(input, 
-                "Must contain only digits (0-9) and latin letters (a-z, A-Z)");
+
+    for (char character : input)
+    {
+        if (!(isdigit(character) || (character >= 'a' && character <= 'z') || (character >= 'A' && character <= 'Z')))
+        {
+            throw InvalidInputException(input, "Must contain only digits (0-9) and latin letters (a-z, A-Z)");
         }
     }
 }
