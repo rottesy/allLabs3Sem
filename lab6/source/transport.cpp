@@ -1,5 +1,6 @@
 #include "../include/transport.hpp"
 #include "../include/const.hpp"
+#include "../include/forceFormat.hpp"
 #include "../include/utils.hpp"
 
 using namespace std;
@@ -15,8 +16,8 @@ double Transport::calculateCost(double distance, double weight) const
 {
     if (weight > capacity)
     {
-        throw invalid_argument("Load capacity exceeded! Capacity: " + to_string(static_cast<int>(capacity)) +
-                               " kg, requested: " + to_string(static_cast<int>(weight)) + " kg");
+        throw invalid_argument(format("Load capacity exceeded! Capacity: {} kg, requested: {} kg",
+                                      to_string(static_cast<int>(capacity)), to_string(static_cast<int>(weight))));
     }
     return distance * costPerKm * (weight / WEIGHT_DIVISOR);
 }
@@ -34,6 +35,6 @@ void Transport::displayInfo() const
     cout << "Registratiom: " << registrationNumber << "\n";
 }
 
-void Transport::setRegistrationNumber(const std::string &regNum) { registrationNumber = regNum; }
+void Transport::setRegistrationNumber(const std::string_view &regNum) { registrationNumber = regNum; }
 
 const char *Transport::getType() const { return "Transport vehicle"; }

@@ -23,7 +23,7 @@ class Transport
     [[nodiscard]] virtual const char *getType() const;
 
     [[nodiscard]] std::string getRegistrationNumber() const { return registrationNumber; }
-    void setRegistrationNumber(const std::string& regNum);
+    void setRegistrationNumber(const std::string_view& regNum);
 };
 
 #endif
