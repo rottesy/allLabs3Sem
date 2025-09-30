@@ -17,22 +17,26 @@ void inputTransportationDetails(double &distance, double &weight, int &passenger
     cout << "\n";
 }
 
-void demonstrateTransport(const Transport *transport, double distance, double weight, int passengers)
-{
+
+void demonstrateTransport(const Transport *transport, double distance, double weight, int passengers) {
     cout << "=== Calculation for " << transport->getType() << " ===" << "\n";
     transport->displayInfo();
 
     double time = transport->calculateTime(distance);
     cout << "Transportation time for " << distance << " km: " << time << " hours (" << time * 60 << " minutes)" << "\n";
 
-    if (double cost = transport->calculateCost(distance, weight); cost >= 0)
-    {
+    try {
+        double cost = transport->calculateCost(distance, weight);
         cout << "Transportation cost for " << weight << " kg: " << cost << " BYN" << "\n";
+    } catch (const std::exception& e) {
+        cout << "Error calculating cargo cost: " << e.what() << "\n";
     }
 
-    if (double passengerCost = transport->calculatePassengerCost(distance, passengers); passengerCost >= 0)
-    {
+    try {
+        double passengerCost = transport->calculatePassengerCost(distance, passengers);
         cout << "Transportation cost for " << passengers << " passengers: " << passengerCost << " BYN" << "\n";
+    } catch (const std::exception& e) {
+        cout << "Error calculating passenger cost: " << e.what() << "\n";
     }
 
     cout << "==============================" << "\n\n";

@@ -22,9 +22,6 @@ int main() {
         cout << e.what() << "\n";
         cout << "Program terminated." << "\n";
         return 1;
-    } catch (const std::exception& e) {
-        cout << "Error: " << e.what() << "\n";
-        return 1;
     }
 
     return 0;
