@@ -28,14 +28,14 @@ void demonstrateTransport(const Transport *transport, double distance, double we
     try {
         double cost = transport->calculateCost(distance, weight);
         cout << "Transportation cost for " << weight << " kg: " << cost << " BYN" << "\n";
-    } catch (const std::exception& e) {
+    } catch (const std::invalid_argument& e) {
         cout << "Error calculating cargo cost: " << e.what() << "\n";
     }
 
     try {
         double passengerCost = transport->calculatePassengerCost(distance, passengers);
         cout << "Transportation cost for " << passengers << " passengers: " << passengerCost << " BYN" << "\n";
-    } catch (const std::exception& e) {
+    } catch (const std::invalid_argument& e) {
         cout << "Error calculating passenger cost: " << e.what() << "\n";
     }
 
