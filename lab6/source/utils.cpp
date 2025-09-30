@@ -89,16 +89,20 @@ int getNumber(const char *msg)
 
         try
         {
-            int num = std::stoi(input);
-            if (num >= MIN_INT && num <= MAX_INT)
+            if (int num = std::stoi(input); num >= MIN_INT && num <= MAX_INT)
             {
                 return num;
             }
             std::cout << "Error: number out of range. Please enter between " << MIN_INT << " and " << MAX_INT << ": ";
         }
-        catch (const std::exception &)
+        catch (const std::invalid_argument &e)
         {
-            std::cout << "Error: invalid number format. Please try again: ";
+            std::cout << "Error: please enter a valid number (digits only): ";
+        }
+        catch (const std::out_of_range &e)
+        {
+            std::cout << "Error: number is too large or too small. Please enter between " << MIN_INT << " and "
+                      << MAX_INT << ": ";
         }
     }
 }
