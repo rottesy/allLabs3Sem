@@ -11,9 +11,16 @@ void inputTransportationDetails(double &distance, double &weight, int &passenger
 
     distance = getNumber("Enter distance (km): ");
 
+    if (distance <= 0) throw invalid_argument("Distance must be positive");
+
     weight = getNumber("Enter cargo weight (kg): ");
 
+    if (weight < 0) throw invalid_argument("Weight cannot be negative");
+
     passengers = getNumber("Enter number of passengers: ");
+
+    if (passengers < 0) throw invalid_argument("Number of passengers cannot be negative");
+
     cout << "\n";
 }
 
@@ -30,7 +37,7 @@ void demonstrateTransport(const Transport *transport, double distance, double we
         double cost = transport->calculateCost(distance, weight);
         cout << "Transportation cost for " << weight << " kg: " << cost << " BYN" << "\n";
     }
-    catch (const std::invalid_argument &e)
+    catch (const invalid_argument &e)
     {
         cout << "Error calculating cargo cost: " << e.what() << "\n";
     }
@@ -40,7 +47,7 @@ void demonstrateTransport(const Transport *transport, double distance, double we
         double passengerCost = transport->calculatePassengerCost(distance, passengers);
         cout << "Transportation cost for " << passengers << " passengers: " << passengerCost << " BYN" << "\n";
     }
-    catch (const std::invalid_argument &e)
+    catch (const invalid_argument &e)
     {
         cout << "Error calculating passenger cost: " << e.what() << "\n";
     }

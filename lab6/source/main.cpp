@@ -1,13 +1,16 @@
+#include "../include/exceptions.hpp"
 #include "../include/menu.hpp"
 #include "../include/utils.hpp"
-#include "../include/exceptions.hpp"
 #include <iostream>
+
 
 using namespace std;
 
-int main() {
+int main()
+{
 
-    try {
+    try
+    {
         double distance = 0;
         double weight = 0;
         int passengers = 0;
@@ -16,8 +19,16 @@ int main() {
         Transport *transport = createTransport();
         demonstrateTransport(transport, distance, weight, passengers);
         delete transport;
-        
-    } catch (const InvalidInputException& e) {
+    }
+    catch (const invalid_argument &e)
+    {
+        cout << "=== INPUT ERROR ===" << "\n";
+        cout << e.what() << "\n";
+        cout << "Program terminated." << "\n";
+        return 1;
+    }
+    catch (const InvalidInputException &e)
+    {
         cout << "=== REGISTRATION ERROR ===" << "\n";
         cout << e.what() << "\n";
         cout << "Program terminated." << "\n";
