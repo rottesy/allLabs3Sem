@@ -5,15 +5,15 @@
 #include "../include/utils.hpp"
 #include <iostream>
 
+
 using namespace std;
 
 Transport *createTransport()
 {
     string regNumber;
     cout << "Enter registration number (digits and latin letters only): ";
-    cin >> regNumber;
+    getline(cin, regNumber);
     validateString(regNumber, "Registration number");
-    getchar();
     int choice;
     cout << "=== Select Transport Type ===" << "\n";
     cout << "1. Car" << "\n";

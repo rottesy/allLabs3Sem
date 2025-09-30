@@ -11,15 +11,18 @@ void inputTransportationDetails(double &distance, double &weight, int &passenger
 
     distance = getNumber("Enter distance (km): ");
 
-    if (distance <= 0) throw invalid_argument("Distance must be positive");
+    if (distance <= 0)
+        throw invalid_argument("Distance must be positive");
 
     weight = getNumber("Enter cargo weight (kg): ");
 
-    if (weight < 0) throw invalid_argument("Weight cannot be negative");
+    if (weight < 0)
+        throw invalid_argument("Weight cannot be negative");
 
     passengers = getNumber("Enter number of passengers: ");
 
-    if (passengers < 0) throw invalid_argument("Number of passengers cannot be negative");
+    if (passengers < 0)
+        throw invalid_argument("Number of passengers cannot be negative");
 
     cout << "\n";
 }
@@ -57,23 +60,45 @@ void demonstrateTransport(const Transport *transport, double distance, double we
 
 int getNumber(const char *msg)
 {
-    int num = 0;
-
+    std::string input;
     std::cout << msg;
 
     while (true)
     {
-        if (std::cin.peek() == '\n' || std::cin.peek() == ' ' || std::cin.fail())
+        std::getline(std::cin, input);
+
+        bool isValid = true;
+        for (size_t i = 0; i < input.length(); ++i)
         {
-            std::cin.clear();
-            while (std::cin.get() != '\n' && !std::cin.eof())
-                ;
-            std::cout << "\nError, invalid input. Please try again: ";
+            if (i == 0 && (input[i] == '-' || input[i] == '+'))
+            {
+                continue;
+            }
+            if (!std::isdigit(static_cast<unsigned char>(input[i])))
+            {
+                isValid = false;
+                break;
+            }
+        }
+
+        if (!isValid || input.empty())
+        {
+            std::cout << "Error: please enter a valid number without spaces or symbols: ";
             continue;
         }
-        if ((std::cin >> num).good() && std::cin.get() == '\n' && (MIN_INT <= num) && (num <= MAX_INT))
+
+        try
         {
-            return num;
+            int num = std::stoi(input);
+            if (num >= MIN_INT && num <= MAX_INT)
+            {
+                return num;
+            }
+            std::cout << "Error: number out of range. Please enter between " << MIN_INT << " and " << MAX_INT << ": ";
+        }
+        catch (const std::exception &)
+        {
+            std::cout << "Error: invalid number format. Please try again: ";
         }
     }
 }
@@ -87,6 +112,10 @@ void validateString(const string &input, [[maybe_unused]] const string_view &fie
 
     for (char character : input)
     {
+        if (isspace(static_cast<unsigned char>(character)))
+        {
+            throw InvalidInputException(input, "Must not contain spaces or whitespace characters");
+        }
         if (!isdigit(character) && (character < 'a' || character > 'z') && (character < 'A' || character > 'Z'))
         {
             throw InvalidInputException(input, "Must contain only digits (0-9) and latin letters (a-z, A-Z)");
