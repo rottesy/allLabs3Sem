@@ -13,7 +13,7 @@ class Transport
     std::string registrationNumber;
 
   public:
-    Transport(double speed, double cost, double cap, const std::string &regNum);
+    Transport(double speed, double cost, double cap, std::string regNum);
     virtual ~Transport() = default;
 
     [[nodiscard]] virtual double calculateTime(double distance) const;

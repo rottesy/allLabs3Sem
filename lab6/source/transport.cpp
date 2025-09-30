@@ -4,8 +4,8 @@
 
 using namespace std;
 
-Transport::Transport(double speed, double cost, double cap, const string &regNum)
-    : speedPerH(speed), costPerKm(cost), capacity(cap), registrationNumber(regNum)
+Transport::Transport(double speed, double cost, double cap, string regNum)
+    : speedPerH(speed), costPerKm(cost), capacity(cap), registrationNumber(std::move(regNum))
 {
 }
 

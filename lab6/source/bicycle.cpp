@@ -11,8 +11,8 @@ double Bicycle::calculateCost(double distance, double weight) const
     if (weight > BICYCLE_LOAD_CAP)
     {
         throw std::invalid_argument(
-            format("Bicycle can't carry such a load! Capacity: ", std::to_string(static_cast<int>(BICYCLE_LOAD_CAP)),
-                   " kg, requested: ", std::to_string(static_cast<int>(weight)), " kg"));
+            format("Carriage can't carry such a load! Capacity: {} kg, requested: {} kg", std::to_string(static_cast<int>(BICYCLE_LOAD_CAP)),
+                    std::to_string(static_cast<int>(weight))));
     }
     return distance * BICYCLE_COST_PER_KM * (1 + weight / BICYCLE_WEIGHT_FACTOR);
 }
