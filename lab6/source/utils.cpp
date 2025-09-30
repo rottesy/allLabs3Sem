@@ -95,11 +95,11 @@ int getNumber(const char *msg)
             }
             std::cout << "Error: number out of range. Please enter between " << MIN_INT << " and " << MAX_INT << ": ";
         }
-        catch (const std::invalid_argument &e)
+        catch (const std::invalid_argument&)
         {
             std::cout << "Error: please enter a valid number (digits only): ";
         }
-        catch (const std::out_of_range &e)
+        catch (const std::out_of_range&)
         {
             std::cout << "Error: number is too large or too small. Please enter between " << MIN_INT << " and "
                       << MAX_INT << ": ";
