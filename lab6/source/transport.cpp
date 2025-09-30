@@ -12,8 +12,7 @@ double Transport::calculateCost(double distance, double weight) const
 {
     if (weight > capacity)
     {
-        cout << "Attention: the load capacity has been exceeded!" << "\n";
-        return -1;
+        throw invalid_argument("Load capacity exceeded! Capacity: " + to_string(static_cast<int>(capacity)) + " kg, requested: " + to_string(static_cast<int>(weight)) + " kg");
     }
     return distance * costPerKm * (weight / WEIGHT_DIVISOR);
 }
