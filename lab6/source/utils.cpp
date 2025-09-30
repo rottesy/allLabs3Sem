@@ -17,25 +17,31 @@ void inputTransportationDetails(double &distance, double &weight, int &passenger
     cout << "\n";
 }
 
-
-void demonstrateTransport(const Transport *transport, double distance, double weight, int passengers) {
+void demonstrateTransport(const Transport *transport, double distance, double weight, int passengers)
+{
     cout << "=== Calculation for " << transport->getType() << " ===" << "\n";
     transport->displayInfo();
 
     double time = transport->calculateTime(distance);
     cout << "Transportation time for " << distance << " km: " << time << " hours (" << time * 60 << " minutes)" << "\n";
 
-    try {
+    try
+    {
         double cost = transport->calculateCost(distance, weight);
         cout << "Transportation cost for " << weight << " kg: " << cost << " BYN" << "\n";
-    } catch (const std::invalid_argument& e) {
+    }
+    catch (const std::invalid_argument &e)
+    {
         cout << "Error calculating cargo cost: " << e.what() << "\n";
     }
 
-    try {
+    try
+    {
         double passengerCost = transport->calculatePassengerCost(distance, passengers);
         cout << "Transportation cost for " << passengers << " passengers: " << passengerCost << " BYN" << "\n";
-    } catch (const std::invalid_argument& e) {
+    }
+    catch (const std::invalid_argument &e)
+    {
         cout << "Error calculating passenger cost: " << e.what() << "\n";
     }
 
@@ -74,7 +80,7 @@ void validateString(const string &input, [[maybe_unused]] const string_view &fie
 
     for (char character : input)
     {
-        if (!(isdigit(character) || (character >= 'a' && character <= 'z') || (character >= 'A' && character <= 'Z')))
+        if (!isdigit(character) && (character < 'a' || character > 'z') && (character < 'A' || character > 'Z'))
         {
             throw InvalidInputException(input, "Must contain only digits (0-9) and latin letters (a-z, A-Z)");
         }
