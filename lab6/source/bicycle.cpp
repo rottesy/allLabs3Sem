@@ -12,7 +12,7 @@ double Bicycle::calculateCost(double distance, double weight) const
 {
     if (weight > BICYCLE_LOAD_CAP)
     {
-        throw InvalidInputException(format("Carriage can't carry such a load! Capacity: {} kg, requested: {} kg",
+        throw InvalidInputException(format("Bicycle can't carry such a load! Capacity: {} kg, requested: {} kg",
                                            std::to_string(static_cast<int>(BICYCLE_LOAD_CAP)),
                                            std::to_string(static_cast<int>(weight))));
     }
