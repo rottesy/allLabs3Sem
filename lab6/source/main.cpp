@@ -3,30 +3,19 @@
 #include "../include/utils.hpp"
 #include <iostream>
 
-
 using namespace std;
 
 int main()
 {
 
-    try
-    {
-        double distance = 0;
-        double weight = 0;
-        int passengers = 0;
-        inputTransportationDetails(distance, weight, passengers);
+    double distance = 0;
+    double weight = 0;
+    int passengers = 0;
+    inputTransportationDetails(distance, weight, passengers);
 
-        Transport *transport = createTransport();
-        demonstrateTransport(transport, distance, weight, passengers);
-        delete transport;
-    }
-    catch (const InvalidInputException &e)
-    {
-        cout << "=== INPUT ERROR ===" << "\n";
-        cout << e.what() << "\n";
-        cout << "Program terminated." << "\n";
-        return 1;
-    }
+    Transport *transport = createTransport();
+    demonstrateTransport(transport, distance, weight, passengers);
+    delete transport;
 
     return 0;
 }

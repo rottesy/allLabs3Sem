@@ -1,30 +1,43 @@
 #include "../include/utils.hpp"
-#include "../include/const.hpp"
 #include "../include/InvalidInputException.hpp"
+#include "../include/const.hpp"
 #include <iostream>
 
 using namespace std;
 
 void inputTransportationDetails(double &distance, double &weight, int &passengers)
 {
-    cout << "=== Enter Transportation Details ===" << "\n";
+    bool validInput = false;
+    while (!validInput)
+    {
+        try
+        {
+            cout << "=== Enter Transportation Details ===" << "\n";
 
-    distance = getNumber("Enter distance (km): ");
+            distance = getNumber("Enter distance (km): ");
 
-    if (distance <= 0)
-        throw InvalidInputException("Distance must be positive");
+            if (distance <= 0)
+                throw InvalidInputException("Distance must be positive");
 
-    weight = getNumber("Enter cargo weight (kg): ");
+            weight = getNumber("Enter cargo weight (kg): ");
 
-    if (weight < 0)
-        throw InvalidInputException("Weight cannot be negative");
+            if (weight < 0)
+                throw InvalidInputException("Weight cannot be negative");
 
-    passengers = getNumber("Enter number of passengers: ");
+            passengers = getNumber("Enter number of passengers: ");
 
-    if (passengers < 0)
-        throw InvalidInputException("Number of passengers cannot be negative");
+            if (passengers < 0)
+                throw InvalidInputException("Number of passengers cannot be negative");
 
-    cout << "\n";
+            cout << "\n";
+            validInput = true;
+        }
+        catch (const InvalidInputException &e)
+        {
+            cout << "Input error: " << e.what() << "\n";
+            cout << "Please re-enter all transportation details.\n" << "\n";
+        }
+    }
 }
 
 void demonstrateTransport(const Transport *transport, double distance, double weight, int passengers)
@@ -33,7 +46,8 @@ void demonstrateTransport(const Transport *transport, double distance, double we
     transport->displayInfo();
 
     double time = transport->calculateTime(distance);
-    cout << "Transportation time for " << distance << " km: " << time << " hours (" << time * 60 << " minutes)" << "\n";
+    cout << "Transportation time for " << distance << " km: " << time << " hours (" << time * 60 << " minutes)"
+         << "\n";
 
     try
     {
@@ -95,11 +109,11 @@ int getNumber(const char *msg)
             }
             std::cout << "Error: number out of range. Please enter between " << MIN_INT << " and " << MAX_INT << ": ";
         }
-        catch (const std::invalid_argument&)
+        catch (const std::invalid_argument &)
         {
             std::cout << "Error: please enter a valid number (digits only): ";
         }
-        catch (const std::out_of_range&)
+        catch (const std::out_of_range &)
         {
             std::cout << "Error: number is too large or too small. Please enter between " << MIN_INT << " and "
                       << MAX_INT << ": ";
