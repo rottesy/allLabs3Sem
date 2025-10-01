@@ -33,7 +33,7 @@ void Transport::displayInfo() const
     cout << "Speed: " << speedPerH << " km/h" << "\n";
     cout << "Cost per km: " << costPerKm << " BYN" << "\n";
     cout << "Load capacity: " << capacity << " kg" << "\n";
-    cout << "Registratiom: " << registrationNumber << "\n";
+    cout << "Registration: " << registrationNumber << "\n";
 }
 
 void Transport::setRegistrationNumber(const std::string_view &regNum) { registrationNumber = regNum; }
