@@ -1,4 +1,5 @@
 #include "../include/bicycle.hpp"
+#include "../include/exceptions.hpp"
 #include "../include/const.hpp"
 #include "../include/forceFormat.hpp"
 #include <iostream>
@@ -10,7 +11,7 @@ double Bicycle::calculateCost(double distance, double weight) const
 {
     if (weight > BICYCLE_LOAD_CAP)
     {
-        throw std::invalid_argument(format("Carriage can't carry such a load! Capacity: {} kg, requested: {} kg",
+        throw InvalidInputException(format("Carriage can't carry such a load! Capacity: {} kg, requested: {} kg",
                                            std::to_string(static_cast<int>(BICYCLE_LOAD_CAP)),
                                            std::to_string(static_cast<int>(weight))));
     }
@@ -21,7 +22,7 @@ double Bicycle::calculatePassengerCost(double distance, int passengers) const
 {
     if (passengers > 1)
     {
-        throw std::invalid_argument(
+        throw InvalidInputException(
             format("Bicycle can only carry 1 passenger! Requested: {}", std::to_string(passengers)));
     }
     return distance * BICYCLE_COST_PER_KM;

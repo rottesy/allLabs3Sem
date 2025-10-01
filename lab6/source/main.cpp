@@ -20,16 +20,9 @@ int main()
         demonstrateTransport(transport, distance, weight, passengers);
         delete transport;
     }
-    catch (const invalid_argument &e)
-    {
-        cout << "=== INPUT ERROR ===" << "\n";
-        cout << e.what() << "\n";
-        cout << "Program terminated." << "\n";
-        return 1;
-    }
     catch (const InvalidInputException &e)
     {
-        cout << "=== REGISTRATION ERROR ===" << "\n";
+        cout << "=== INPUT ERROR ===" << "\n";
         cout << e.what() << "\n";
         cout << "Program terminated." << "\n";
         return 1;

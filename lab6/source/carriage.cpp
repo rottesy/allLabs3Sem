@@ -1,4 +1,5 @@
 #include "../include/carriage.hpp"
+#include "../include/exceptions.hpp"
 #include "../include/const.hpp"
 #include "../include/forceFormat.hpp"
 #include "../include/utils.hpp"
@@ -12,7 +13,7 @@ double Carriage::calculateCost(double distance, double weight) const
 {
     if (weight > CARRIAGE_LOAD_CAP)
     {
-        throw invalid_argument(format("Carriage can't carry such a load! Capacity: {} kg, requested: {} kg",
+        throw InvalidInputException(format("Carriage can't carry such a load! Capacity: {} kg, requested: {} kg",
                                       static_cast<int>(CARRIAGE_LOAD_CAP), static_cast<int>(weight)));
     }
     return distance * CARRIAGE_COST_PER_KM * (weight / WEIGHT_DIVISOR) * NUMBER_OF_HORSES * CARRIAGE_HORSE_FACTOR;
