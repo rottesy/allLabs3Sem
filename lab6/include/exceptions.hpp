@@ -11,7 +11,7 @@ class InvalidInputException : public std::exception
 
   public:
     InvalidInputException(const std::string &input, const std::string &requirement);
-    InvalidInputException(const std::string &customMessage);
+    explicit InvalidInputException(const std::string_view &customMessage);
     [[nodiscard]] const char *what() const noexcept override;
 };
 
