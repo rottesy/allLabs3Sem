@@ -1,5 +1,5 @@
-#ifndef EXCEPTIONS_HPP
-#define EXCEPTIONS_HPP
+#ifndef INVALIDINPUTEXCEPTION_HPP
+#define INVALIDINPUTEXCEPTION_HPP
 
 #include <stdexcept>
 #include <string>

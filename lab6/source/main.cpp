@@ -1,4 +1,4 @@
-#include "../include/exceptions.hpp"
+#include "../include/InvalidInputException.hpp"
 #include "../include/menu.hpp"
 #include "../include/utils.hpp"
 #include <iostream>

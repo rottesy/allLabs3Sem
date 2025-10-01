@@ -21,5 +21,5 @@ add_executable(app
     source/car.cpp
     source/carriage.cpp
     source/transport.cpp
-    source/exceptions.cpp
+    source/InvalidInputException.cpp
 )
