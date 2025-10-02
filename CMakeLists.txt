@@ -14,4 +14,4 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 endif()
 
 
-add_subdirectory(lab6)
+add_subdirectory(lab5)
