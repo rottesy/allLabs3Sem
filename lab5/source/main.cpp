@@ -5,7 +5,6 @@
 int main()
 {
     system("cls");
-    std ::cout << "where are u sonar";
     int choice;
 
     do
