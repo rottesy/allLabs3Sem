@@ -13,3 +13,4 @@
 #### 5.[Лабораторная работа - Шаблоны функций и классов](https://github.com/rottesy/allLabs3Sem/tree/main/lab5)
 #### 6.[Лабораторная работа - Генерация и обработка исключительных ситуаций](https://github.com/rottesy/allLabs3Sem/tree/main/lab6)
 #### 7.[Лабораторная работа - Потоки ввода/вывода. Работа с файлами](https://github.com/rottesy/allLabs3Sem/tree/main/lab7)
+#### 8.[Лабораторная работа - Классы контейнеры-итераторы. STL-контейнеры](https://github.com/rottesy/allLabs3Sem/tree/main/lab8)
