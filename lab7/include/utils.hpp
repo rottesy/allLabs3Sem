@@ -27,7 +27,7 @@ template <typename T> T getValue(const std::string &msg)
         std::cin.clear();
         while (std::cin.get() != '\n' && !std::cin.eof())
             ;
-        std::cout << kRedColor << "\nError, invalid input. Please try again: " << kWhiteColor;
+        std::cout  << "\nError, invalid input. Please try again: ";
     }
 }
 
@@ -45,7 +45,7 @@ inline std::string getValue<std::string>(const std::string &msg) {
     
    
     if (value.empty()) {
-        std::cout << kRedColor << "Error: string cannot be empty. Please try again: " << kWhiteColor;
+        std::cout << "Error: string cannot be empty. Please try again: ";
         
         return getValue<std::string>(msg);
     }

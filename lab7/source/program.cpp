@@ -12,33 +12,31 @@ void Program::addProduct()
 {
     product.add();
 
-    std::cout << kGreenColor << "\nYou successfully added the product!" << kWhiteColor << "\n";
+    std::cout << "\nYou successfully added the product!" << "\n";
 }
 
 void Program::showAllProducts()
 {
     if (isFileEmpty(kFileWithProducts))
     {
-        std::cout << kRedColor
-                  << "\nError: Product list is empty! Please add a product first (use "
+        std::cout << "\nError: Product list is empty! Please add a product first (use "
                      "option 1)."
-                  << kWhiteColor << "\n";
+                  << "\n";
         return;
     }
 
     Product::showAll();
 
-    std::cout << kGreenColor << "\nYou successfully printed all products!" << kWhiteColor << "\n";
+    std::cout << "\nYou successfully printed all products!" << "\n";
 }
 
 void Program::displayQuantityByYear()
 {
     if (isFileEmpty(kFileWithProducts))
     {
-        std::cout << kRedColor
-                  << "\nError: Product list is empty! Please add a product first (use "
+        std::cout << "\nError: Product list is empty! Please add a product first (use "
                      "option 1)."
-                  << kWhiteColor << "\n";
+                  << "\n";
         return;
     }
 
@@ -47,13 +45,13 @@ void Program::displayQuantityByYear()
 
     if (totalQuantity == 0)
     {
-        std::cout << kRedColor << "\nNo products found for year " << year << "." << kWhiteColor << "\n";
+        std::cout << "\nNo products found for year " << year << "." << "\n";
         return;
     }
 
     std::cout << "\nTotal quantity of products received in " << year << ": " << totalQuantity << "\n";
 
-    std::cout << kGreenColor << "\nYou successfully found total quantity by year!" << kWhiteColor << "\n";
+    std::cout << "\nYou successfully found total quantity by year!" << "\n";
 }
 
 void Program::run()
@@ -80,13 +78,12 @@ void Program::run()
                 displayQuantityByYear();
                 break;
             case 4:
-                std::cout << kGreenColor << "\nYou have successfully exited the program." << kWhiteColor << "\n";
+                std::cout << "\nYou have successfully exited the program." << "\n";
                 return;
             default:
-                std::cout << kRedColor
-                          << "\nError, you picked is an incorrect menu option. "
+                std::cout << "\nError, you picked is an incorrect menu option. "
                              "Please try again."
-                          << kWhiteColor << "\n";
+                          << "\n";
         }
     }
 }
