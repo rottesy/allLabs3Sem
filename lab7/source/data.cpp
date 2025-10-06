@@ -13,10 +13,10 @@ int Date::getDaysInMonth() const
 {
     if (month == 2 && isLeapYear())
     {
-        return kLeapFebruaryDays;
+        return LEAP_FEBRUARY_DAYS;
     }
 
-    return kDaysInMonth[month - 1];
+    return DAYS_IN_MONTH[month - 1];
 }
 
 void Date::showDateFormatException(const std::string &date, const std::exception &exc)
@@ -28,7 +28,7 @@ void Date::parse(const std::string &date)
 {
     try
     {
-        if (date.length() != kFormatDateLen)
+        if (date.length() != FORMAT_DATE_LEN)
         {
             throw std::invalid_argument("expected format dd.mm.yy (8 characters)");
         }
@@ -47,7 +47,7 @@ void Date::parse(const std::string &date)
         int tmpMonth = std::stoi(date.substr(3, 2));
         int tmpYear = std::stoi(date.substr(6, 2));
 
-        if (tmpMonth < 1 || tmpMonth > kMonthCount)
+        if (tmpMonth < 1 || tmpMonth > MONTH_COUNT)
         {
             throw std::invalid_argument("month out of range (01..12)");
         }

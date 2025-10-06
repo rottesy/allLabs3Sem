@@ -25,7 +25,7 @@ class Date
 
     friend std::ostream &operator<<(std::ostream &ostm, const Date &date)
     {
-        ostm << std::setw(2) << std::setfill('0') << date.day << '.' << std::setw(2) << std::setfill('0') << date.month
+        ostm << std::setw(2) << date.day << '.' << std::setw(2)  << date.month
              << '.' << date.year;
         return ostm;
     }

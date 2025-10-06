@@ -6,12 +6,12 @@ class Program
 {
     Product product;
 
-    void addProduct();
+    static void addProduct();
     static void showAllProducts();
     static void displayQuantityByYear();
 
   public:
     Program();
 
-    void run();
+    static void run();
 };

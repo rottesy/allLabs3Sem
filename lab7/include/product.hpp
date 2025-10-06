@@ -32,7 +32,7 @@ class Product
         return istm;
     }
 
-    void add();
+    static void add();
     static void showAll();
     static int getQuantityByYear(int year);
     [[nodiscard]] bool isEmpty() const;

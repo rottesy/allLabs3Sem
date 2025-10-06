@@ -10,14 +10,14 @@ Program::Program() = default;
 
 void Program::addProduct()
 {
-    product.add();
+    Product::add();
 
     std::cout << "\nYou successfully added the product!" << "\n";
 }
 
 void Program::showAllProducts()
 {
-    if (isFileEmpty(kFileWithProducts))
+    if (isFileEmpty(FILE_WITH_PRODUCTS))
     {
         std::cout << "\nError: Product list is empty! Please add a product first (use "
                      "option 1)."
@@ -32,7 +32,7 @@ void Program::showAllProducts()
 
 void Program::displayQuantityByYear()
 {
-    if (isFileEmpty(kFileWithProducts))
+    if (isFileEmpty(FILE_WITH_PRODUCTS))
     {
         std::cout << "\nError: Product list is empty! Please add a product first (use "
                      "option 1)."
