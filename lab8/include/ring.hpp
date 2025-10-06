@@ -5,7 +5,6 @@
 #include <iostream>
 #include <vector>
 
-
 template <typename T> class Ring
 {
     Node<T> *head = nullptr;
@@ -147,7 +146,18 @@ template <typename T> class Ring
         move.size = 0;
     }
 
-    ~Ring() { clear(); }
+    ~Ring()
+    {
+        try
+        {
+            clear();
+        }
+        catch (...)
+        {
+            head = nullptr;
+            size = 0;
+        }
+    }
 
     Ring &operator=(const Ring &other)
     {
@@ -159,7 +169,7 @@ template <typename T> class Ring
         return *this;
     }
 
-    Ring &operator=(Ring &&move) noexcept
+    Ring &operator=(Ring &&move)
     {
         if (this == &move)
             return *this;
@@ -208,7 +218,7 @@ template <typename T> class Ring
 
     Iterator insert(Iterator pos, const T &value)
     {
-        Node<T> *newNode = new Node<T>(value);
+        auto *newNode = new Node<T>(value);
 
         if (empty())
         {
@@ -340,7 +350,7 @@ template <typename T> class Ring
 
     void push_back(const T &value)
     {
-        Node<T> *newNode = new Node<T>(value);
+        auto *newNode = new Node<T>(value);
 
         if (empty())
         {
@@ -358,7 +368,7 @@ template <typename T> class Ring
 
     void push_front(const T &value)
     {
-        Node<T> *newNode = new Node<T>(value);
+        auto *newNode = new Node<T>(value);
 
         if (empty())
         {
