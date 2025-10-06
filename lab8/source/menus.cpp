@@ -63,7 +63,7 @@ void choiceRingType()
                 return;
             }
             default:
-                std::cout  << "Error, invalid choice. Please try again."  << "\n";
+                std::cout << "Error, invalid choice. Please try again." << "\n";
         }
     }
 }
