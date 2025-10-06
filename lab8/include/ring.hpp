@@ -51,8 +51,8 @@ template <typename T> class Ring
 
             for (size_t j = 0; j < size - i - 1; j++)
             {
-                Node<T> *nextNode = current->next;
-                if (current->data > nextNode->data)
+                
+                if (Node<T> *nextNode = current->next; current->data > nextNode->data)
                 {
                     std::swap(current->data, nextNode->data);
                     swapped = true;
@@ -169,7 +169,7 @@ template <typename T> class Ring
         return *this;
     }
 
-    Ring &operator=(Ring &&move)
+    Ring &operator=(Ring &&move) noexcept
     {
         if (this == &move)
             return *this;
