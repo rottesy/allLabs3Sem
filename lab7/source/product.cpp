@@ -11,7 +11,7 @@ void Product::add()
 {
     Product tmp;
 
-    std::cout << "\n=== Adding New Product ===" << std::endl;
+    std::cout << "\n=== Adding New Product ===" << "\n";
 
     std::cout << "Enter product name: ";
     std::cin.ignore();
@@ -50,15 +50,14 @@ void Product::showAll()
         return;
     }
 
-    std::cout << "\n\t\t\t\tPRODUCTS LIST" << std::endl;
-    std::cout << "Name\t\tQuantity\tPrice\t\tReceipt Date" << std::endl;
-    std::cout << "--------------------------------------------------------" << std::endl;
+    std::cout << "\n\t\t\t\tPRODUCTS LIST" << "\n";
+    std::cout << "Name\t\tQuantity\tPrice\t\tReceipt Date" << "\n";
+    std::cout << "--------------------------------------------------------" << "\n";
 
     while (fileIn >> tmp)
     {
 
-        std::cout << tmp.name << "\t\t" << tmp.quantity << "\t\t" << tmp.price << "\t\t" << tmp.receiptDate
-                  << std::endl;
+        std::cout << tmp.name << "\t\t" << tmp.quantity << "\t\t" << tmp.price << "\t\t" << tmp.receiptDate << "\n";
     }
 
     fileIn.close();

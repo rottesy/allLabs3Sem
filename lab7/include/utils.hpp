@@ -19,12 +19,10 @@ template <typename T> T getValue(const std::string &msg)
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             return value;
         }
-        else
-        {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << kRedColor << "\nError, invalid input. Please try again: " << kWhiteColor;
-        }
+
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << kRedColor << "\nError, invalid input. Please try again: " << kWhiteColor;
     }
 }
 
@@ -39,7 +37,5 @@ template <typename T> bool isValidFileOpen(T &file, const std::string &fileName)
 }
 
 bool isDigits(const std::string &str, int pos, int len);
-
-
 
 bool isFileEmpty(const std::string &filename);

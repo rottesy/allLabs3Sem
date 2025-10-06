@@ -9,8 +9,8 @@ class Date
     int month = 0;
     int year = 0;
 
-    bool isLeapYear() const;
-    int getDaysInMonth() const;
+    [[nodiscard]] bool isLeapYear() const;
+    [[nodiscard]] int getDaysInMonth() const;
 
     static void showDateFormatException(const std::string &date, const std::exception &exc);
     Date(int day, int month, int year);
@@ -20,8 +20,8 @@ class Date
 
     void parse(const std::string &date);
     void input();
-    bool isEmpty() const;
-    int getYear() const { return year; }
+    [[nodiscard]] bool isEmpty() const;
+    [[nodiscard]] int getYear() const { return year; }
 
     friend std::ostream &operator<<(std::ostream &ostm, const Date &date)
     {

@@ -21,8 +21,7 @@ int Date::getDaysInMonth() const
 
 void Date::showDateFormatException(const std::string &date, const std::exception &exc)
 {
-    std::cout << kRedColor << "\nIncorrect date format: " << exc.what() << " | input: " << date << kWhiteColor
-              << std::endl;
+    std::cout << kRedColor << "\nIncorrect date format: " << exc.what() << " | input: " << date << kWhiteColor << "\n";
 }
 
 void Date::parse(const std::string &date)

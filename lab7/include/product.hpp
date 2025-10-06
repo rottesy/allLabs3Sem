@@ -31,5 +31,5 @@ class Product
     void add();
     static void showAll();
     static int getQuantityByYear(int year);
-    bool isEmpty() const;
+    [[nodiscard]] bool isEmpty() const;
 };

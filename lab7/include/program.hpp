@@ -7,8 +7,8 @@ class Program
     Product product;
 
     void addProduct();
-    void showAllProducts() const;
-    void displayQuantityByYear() const;
+    static void showAllProducts();
+    static void displayQuantityByYear();
 
   public:
     Program();
