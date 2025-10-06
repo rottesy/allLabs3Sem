@@ -1,9 +1,10 @@
 #pragma once
 
+#include "exceptions.hpp"
 #include "node.hpp"
 #include <iostream>
-#include <stdexcept>
 #include <vector>
+
 
 template <typename T> class Ring
 {
@@ -25,6 +26,46 @@ template <typename T> class Ring
         return false;
     }
 
+    Node<T> *getTail() const
+    {
+        if (empty())
+            return nullptr;
+
+        Node<T> *current = head;
+        for (size_t i = 1; i < size; i++)
+        {
+            current = current->next;
+        }
+        return current;
+    }
+
+    void bubbleSortOptimized()
+    {
+        if (size <= 1)
+            return;
+
+        bool swapped;
+        for (size_t i = 0; i < size - 1; i++)
+        {
+            swapped = false;
+            Node<T> *current = head;
+
+            for (size_t j = 0; j < size - i - 1; j++)
+            {
+                Node<T> *nextNode = current->next;
+                if (current->data > nextNode->data)
+                {
+                    std::swap(current->data, nextNode->data);
+                    swapped = true;
+                }
+                current = current->next;
+            }
+
+            if (!swapped)
+                break;
+        }
+    }
+
   public:
     class Iterator
     {
@@ -40,24 +81,24 @@ template <typename T> class Ring
         T &operator*()
         {
             if (!ptr)
-                throw std::runtime_error("Dereferencing null iterator");
+                throw IteratorException("Dereferencing null iterator");
             return ptr->data;
         }
 
         const T &operator*() const
         {
             if (!ptr)
-                throw std::runtime_error("Dereferencing null iterator");
+                throw IteratorException("Dereferencing null iterator");
             return ptr->data;
         }
 
         Iterator &operator++()
         {
             if (!ptr)
-                throw std::runtime_error("Incrementing null iterator");
+                throw IteratorException("Incrementing null iterator");
             if (iterations >= max_iterations && max_iterations > 0)
             {
-                throw std::runtime_error("Iterator: infinite loop detected");
+                throw InfiniteLoopException();
             }
             ptr = ptr->next;
             iterations++;
@@ -71,9 +112,9 @@ template <typename T> class Ring
             return tmp;
         }
 
-        friend bool operator==(const Iterator &lhs, const Iterator &rhs) { return lhs.ptr == rhs.ptr; }
+        bool operator==(const Iterator &other) const { return ptr == other.ptr; }
 
-        friend bool operator!=(const Iterator &lhs, const Iterator &rhs) { return lhs.ptr != rhs.ptr; }
+        bool operator!=(const Iterator &other) const { return !(*this == other); }
 
         bool completedCycle() const { return ptr == start && iterations > 0; }
 
@@ -133,15 +174,15 @@ template <typename T> class Ring
         return *this;
     }
 
-    friend bool operator==(const Ring &lhs, const Ring &rhs)
+    bool operator==(const Ring &other) const
     {
-        if (lhs.size != rhs.size)
+        if (size != other.size)
             return false;
 
-        auto it1 = lhs.begin();
-        auto it2 = rhs.begin();
+        auto it1 = begin();
+        auto it2 = other.begin();
 
-        for (size_t i = 0; i < lhs.size; i++)
+        for (size_t i = 0; i < size; i++)
         {
             if (*it1 != *it2)
                 return false;
@@ -151,7 +192,7 @@ template <typename T> class Ring
         return true;
     }
 
-    friend bool operator!=(const Ring &lhs, const Ring &rhs) { return !(lhs == rhs); }
+    bool operator!=(const Ring &other) const { return !(*this == other); }
 
     bool empty() const { return size == 0; }
     size_t getSize() const { return size; }
@@ -167,7 +208,7 @@ template <typename T> class Ring
 
     Iterator insert(Iterator pos, const T &value)
     {
-        auto *newNode = new Node<T>(value);
+        Node<T> *newNode = new Node<T>(value);
 
         if (empty())
         {
@@ -187,7 +228,7 @@ template <typename T> class Ring
         if (!containsNode(current))
         {
             delete newNode;
-            throw std::invalid_argument("Iterator does not belong to this ring");
+            throw InvalidIteratorException();
         }
 
         Node<T> *prev = head;
@@ -201,7 +242,7 @@ template <typename T> class Ring
         if (steps >= size)
         {
             delete newNode;
-            throw std::runtime_error("Invalid iterator position");
+            throw IteratorException("Invalid iterator position");
         }
 
         prev->next = newNode;
@@ -219,12 +260,12 @@ template <typename T> class Ring
     Iterator erase(Iterator pos)
     {
         if (empty())
-            return end();
+            throw EmptyRingException();
 
         Node<T> *current = pos.getNode();
         if (!current || !containsNode(current))
         {
-            throw std::invalid_argument("Invalid iterator for erase");
+            throw InvalidIteratorException();
         }
 
         Node<T> *nextNode = current->next;
@@ -246,7 +287,7 @@ template <typename T> class Ring
 
             if (steps >= size)
             {
-                throw std::runtime_error("Cannot find node to erase");
+                throw IteratorException("Cannot find node to erase");
             }
 
             prev->next = nextNode;
@@ -272,54 +313,34 @@ template <typename T> class Ring
     T &front()
     {
         if (empty())
-        {
-            throw std::out_of_range("Ring is empty");
-        }
+            throw EmptyRingException();
         return head->data;
     }
 
     const T &front() const
     {
         if (empty())
-        {
-            throw std::out_of_range("Ring is empty");
-        }
+            throw EmptyRingException();
         return head->data;
     }
 
     T &back()
     {
         if (empty())
-        {
-            throw std::out_of_range("Ring is empty");
-        }
-
-        Node<T> *current = head;
-        for (size_t i = 1; i < size; i++)
-        {
-            current = current->next;
-        }
-        return current->data;
+            throw EmptyRingException();
+        return getTail()->data;
     }
 
     const T &back() const
     {
         if (empty())
-        {
-            throw std::out_of_range("Ring is empty");
-        }
-
-        Node<T> *current = head;
-        for (size_t i = 1; i < size; i++)
-        {
-            current = current->next;
-        }
-        return current->data;
+            throw EmptyRingException();
+        return getTail()->data;
     }
 
     void push_back(const T &value)
     {
-        auto *newNode = new Node<T>(value);
+        Node<T> *newNode = new Node<T>(value);
 
         if (empty())
         {
@@ -328,11 +349,7 @@ template <typename T> class Ring
         }
         else
         {
-            Node<T> *tail = head;
-            for (size_t i = 1; i < size; i++)
-            {
-                tail = tail->next;
-            }
+            Node<T> *tail = getTail();
             tail->next = newNode;
             newNode->next = head;
         }
@@ -341,7 +358,7 @@ template <typename T> class Ring
 
     void push_front(const T &value)
     {
-        auto *newNode = new Node<T>(value);
+        Node<T> *newNode = new Node<T>(value);
 
         if (empty())
         {
@@ -350,12 +367,7 @@ template <typename T> class Ring
         }
         else
         {
-            Node<T> *tail = head;
-            for (size_t i = 1; i < size; i++)
-            {
-                tail = tail->next;
-            }
-
+            Node<T> *tail = getTail();
             newNode->next = head;
             head = newNode;
             tail->next = head;
@@ -366,7 +378,7 @@ template <typename T> class Ring
     void pop_back()
     {
         if (empty())
-            return;
+            throw EmptyRingException();
 
         if (size == 1)
         {
@@ -391,7 +403,7 @@ template <typename T> class Ring
     void pop_front()
     {
         if (empty())
-            return;
+            throw EmptyRingException();
 
         if (size == 1)
         {
@@ -400,12 +412,7 @@ template <typename T> class Ring
         }
         else
         {
-            Node<T> *tail = head;
-            for (size_t i = 1; i < size; i++)
-            {
-                tail = tail->next;
-            }
-
+            Node<T> *tail = getTail();
             Node<T> *temp = head;
             head = head->next;
             tail->next = head;
@@ -430,4 +437,6 @@ template <typename T> class Ring
         }
         std::cout << std::endl;
     }
+
+    void sort() { bubbleSortOptimized(); }
 };

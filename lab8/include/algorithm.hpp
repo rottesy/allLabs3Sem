@@ -1,59 +1,61 @@
 #pragma once
 #include "ring.hpp"
+#include "exceptions.hpp"
 
-template <typename T> class Algorithm
-{
-  public:
-    bool find(const Ring<T> &ring, const T &value) const;
-    void sort(Ring<T> &ring) const;
+template <typename T>
+class Algorithm {
+public:
+    bool find(const Ring<T>& ring, const T& value) const;
+    void sort(Ring<T>& ring) const;
+    
+    
+    template<typename Predicate>
+    bool any_of(const Ring<T>& ring, Predicate pred) const;
+    
+    template<typename Predicate>  
+    typename Ring<T>::Iterator find_if(const Ring<T>& ring, Predicate pred) const;
 };
 
-template <typename T> void Algorithm<T>::sort(Ring<T> &ring) const
-{
-    if (ring.getSize() <= 1)
-        return;
-
-    std::vector<T> elements;
-    typename Ring<T>::Iterator it = ring.begin();
-
-    for (size_t i = 0; i < ring.getSize(); i++)
-    {
-        elements.push_back(*it);
-        ++it;
-    }
-
-    for (size_t i = 0; i < elements.size() - 1; i++)
-    {
-        for (size_t j = 0; j < elements.size() - i - 1; j++)
-        {
-            if (elements[j] > elements[j + 1])
-            {
-                std::swap(elements[j], elements[j + 1]);
-            }
-        }
-    }
-
-    Ring<T> temp;
-    for (const auto &elem : elements)
-    {
-        temp.push_back(elem);
-    }
-
-    ring = std::move(temp);
+template <typename T>
+void Algorithm<T>::sort(Ring<T>& ring) const {
+    if (ring.empty()) return;
+    ring.sort(); 
 }
 
-template <typename T> bool Algorithm<T>::find(const Ring<T> &ring, const T &value) const
-{
-    if (ring.empty())
-        return false;
+template <typename T>
+bool Algorithm<T>::find(const Ring<T>& ring, const T& value) const {
+    if (ring.empty()) return false;
 
     typename Ring<T>::Iterator it = ring.begin();
-    for (size_t i = 0; i < ring.getSize(); i++)
-    {
-        if (*it == value)
-            return true;
+    for (size_t i = 0; i < ring.getSize(); i++) {
+        if (*it == value) return true;
         ++it;
     }
-
     return false;
+}
+
+template <typename T>
+template<typename Predicate>
+bool Algorithm<T>::any_of(const Ring<T>& ring, Predicate pred) const {
+    if (ring.empty()) return false;
+
+    typename Ring<T>::Iterator it = ring.begin();
+    for (size_t i = 0; i < ring.getSize(); i++) {
+        if (pred(*it)) return true;
+        ++it;
+    }
+    return false;
+}
+
+template <typename T>
+template<typename Predicate>
+typename Ring<T>::Iterator Algorithm<T>::find_if(const Ring<T>& ring, Predicate pred) const {
+    if (ring.empty()) return ring.end();
+
+    typename Ring<T>::Iterator it = ring.begin();
+    for (size_t i = 0; i < ring.getSize(); i++) {
+        if (pred(*it)) return it;
+        ++it;
+    }
+    return ring.end();
 }

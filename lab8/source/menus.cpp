@@ -2,7 +2,6 @@
 #include "../include/utils.hpp"
 #include <iostream>
 
-
 void choiceRingType()
 {
     int choice = 0;
