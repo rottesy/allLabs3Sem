@@ -71,11 +71,11 @@ template <typename T> class Ring
         Node<T> *ptr;
         Node<T> *start;
         size_t iterations = 0;
-        size_t max_iterations;
+        size_t maxIterations;
 
       public:
-        Iterator() : ptr(nullptr), start(nullptr), max_iterations(0) {}
-        Iterator(Node<T> *node, size_t ring_size) : ptr(node), start(node), max_iterations(ring_size) {}
+        Iterator() : ptr(nullptr), start(nullptr), maxIterations(0) {}
+        Iterator(Node<T> *node, size_t ringSize) : ptr(node), start(node), maxIterations(ringSize) {}
 
         T &operator*()
         {
@@ -95,7 +95,7 @@ template <typename T> class Ring
         {
             if (!ptr)
                 throw IteratorException("Incrementing null iterator");
-            if (iterations >= max_iterations && max_iterations > 0)
+            if (iterations >= maxIterations && maxIterations > 0)
             {
                 throw InfiniteLoopException();
             }
