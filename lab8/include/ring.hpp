@@ -216,7 +216,7 @@ template <typename T> class Ring
         Node<T> *current = pos.getNode();
         if (!current)
         {
-            push_back(value);
+            pushBack(value);
             return Iterator(newNode, size);
         }
 
@@ -359,7 +359,7 @@ template <typename T> class Ring
         return getTail()->data;
     }
 
-    void push_back(const T &value)
+    void pushBack(const T &value)
     {
         auto *newNode = new Node<T>(value);
 
@@ -377,7 +377,7 @@ template <typename T> class Ring
         size++;
     }
 
-    void push_front(const T &value)
+    void pushFront(const T &value)
     {
         auto *newNode = new Node<T>(value);
 
@@ -396,14 +396,14 @@ template <typename T> class Ring
         size++;
     }
 
-    void pop_back()
+    void popBack()
     {
         if (empty())
             throw EmptyRingException();
 
         if (size == 1)
         {
-            pop_front();
+            popFront();
             return;
         }
 
@@ -421,7 +421,7 @@ template <typename T> class Ring
         size--;
     }
 
-    void pop_front()
+    void popFront()
     {
         if (empty())
             throw EmptyRingException();

@@ -9,9 +9,9 @@ template <typename T> class Algorithm
     bool find(const Ring<T> &ring, const T &value) const;
     void sort(Ring<T> &ring) const;
 
-    template <typename Predicate> bool any_of(const Ring<T> &ring, Predicate pred) const;
+    template <typename Predicate> bool anyOf(const Ring<T> &ring, Predicate pred) const;
 
-    template <typename Predicate> typename Ring<T>::Iterator find_if(const Ring<T> &ring, Predicate pred) const;
+    template <typename Predicate> typename Ring<T>::Iterator findIf(const Ring<T> &ring, Predicate pred) const;
 };
 
 template <typename T> void Algorithm<T>::sort(Ring<T> &ring) const
@@ -36,7 +36,7 @@ template <typename T> bool Algorithm<T>::find(const Ring<T> &ring, const T &valu
     return false;
 }
 
-template <typename T> template <typename Predicate> bool Algorithm<T>::any_of(const Ring<T> &ring, Predicate pred) const
+template <typename T> template <typename Predicate> bool Algorithm<T>::anyOf(const Ring<T> &ring, Predicate pred) const
 {
     if (ring.empty())
         return false;
@@ -53,7 +53,7 @@ template <typename T> template <typename Predicate> bool Algorithm<T>::any_of(co
 
 template <typename T>
 template <typename Predicate>
-typename Ring<T>::Iterator Algorithm<T>::find_if(const Ring<T> &ring, Predicate pred) const
+typename Ring<T>::Iterator Algorithm<T>::findIf(const Ring<T> &ring, Predicate pred) const
 {
     if (ring.empty())
         return ring.end();

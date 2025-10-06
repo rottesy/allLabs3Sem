@@ -44,7 +44,7 @@ template <typename T> void Program<T>::createRing()
     {
         std::cout << "Enter element " << i + 1 << ": ";
         T value = getValue<T>();
-        ring.push_back(value);
+        ring.pushBack(value);
     }
 
     std::cout << "\033[32m" << "Ring created successfully!" << "\033[0m" << "\n";
@@ -66,11 +66,11 @@ template <typename T> void Program<T>::addRingElement()
         switch (opt)
         {
             case 1:
-                ring.push_front(value);
+                ring.pushFront(value);
                 std::cout << "\033[32m" << "Element added to front!" << "\033[0m" << "\n";
                 return;
             case 2:
-                ring.push_back(value);
+                ring.pushBack(value);
                 std::cout << "\033[32m" << "Element added to back!" << "\033[0m" << "\n";
                 return;
             default:
@@ -98,11 +98,11 @@ template <typename T> void Program<T>::removeRingElement()
         switch (opt)
         {
             case 1:
-                ring.pop_front();
+                ring.popFront();
                 std::cout << "\033[32m" << "Front element removed!" << "\033[0m" << "\n";
                 return;
             case 2:
-                ring.pop_back();
+                ring.popBack();
                 std::cout << "\033[32m" << "Back element removed!" << "\033[0m" << "\n";
                 return;
             default:
