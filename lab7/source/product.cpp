@@ -13,9 +13,7 @@ void Product::add()
 
     std::cout << "\n=== Adding New Product ===" << "\n";
 
-    std::cout << "Enter product name: ";
-    std::cin.ignore();
-    std::getline(std::cin, tmp.name);
+    tmp.name = getValue<std::string>("Enter product name: ");
 
     tmp.quantity = getValue<int>("Enter product quantity: ");
 
