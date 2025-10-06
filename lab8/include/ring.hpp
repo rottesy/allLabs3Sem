@@ -113,9 +113,7 @@ template <typename T> class Ring
 
         bool operator==(const Iterator &other) const { return ptr == other.ptr; }
 
-        
-
-        bool completedCycle() const { return ptr == start && iterations > 0; }
+        [[nodiscard]] bool completedCycle() const { return ptr == start && iterations > 0; }
 
         Node<T> *getNode() const { return ptr; }
     };
@@ -191,8 +189,8 @@ template <typename T> class Ring
         return true;
     }
 
-    bool empty() const { return size == 0; }
-    size_t getSize() const { return size; }
+    [[nodiscard]] bool empty() const { return size == 0; }
+    [[nodiscard]] size_t getSize() const { return size; }
 
     void swap(Ring &other) noexcept
     {
@@ -448,7 +446,7 @@ template <typename T> class Ring
     {
         if (empty())
         {
-            std::cout << "Ring is empty" << std::endl;
+            std::cout << "Ring is empty" << "\n";
             return;
         }
 
@@ -458,7 +456,7 @@ template <typename T> class Ring
             std::cout << *it << " ";
             ++it;
         }
-        std::cout << std::endl;
+        std::cout << "\n";
     }
 
     void sort() { bubbleSortOptimized(); }

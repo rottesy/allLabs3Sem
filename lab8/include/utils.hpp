@@ -17,29 +17,29 @@ template <typename T> T getValue()
 
 inline void showMenu()
 {
-    std::cout << "\n\t\t\t\tRING MENU" << std::endl;
-    std::cout << "1. Create ring." << std::endl;
-    std::cout << "2. Add element." << std::endl;
-    std::cout << "3. Remove element." << std::endl;
-    std::cout << "4. Display ring." << std::endl;
-    std::cout << "5. Sort ring." << std::endl;
-    std::cout << "6. Search for element." << std::endl;
-    std::cout << "7. Clear ring." << std::endl;
-    std::cout << "8. Exit program." << std::endl;
+    std::cout << "\n\t\t\t\tRING MENU" << "\n";
+    std::cout << "1. Create ring." << "\n";
+    std::cout << "2. Add element." << "\n";
+    std::cout << "3. Remove element." << "\n";
+    std::cout << "4. Display ring." << "\n";
+    std::cout << "5. Sort ring." << "\n";
+    std::cout << "6. Search for element." << "\n";
+    std::cout << "7. Clear ring." << "\n";
+    std::cout << "8. Exit program." << "\n";
 }
 
 inline void showAddMenu()
 {
-    std::cout << "\n\t\t\t\tADD MENU" << std::endl;
-    std::cout << "1. Add to the beginning (push_front)." << std::endl;
-    std::cout << "2. Add to the end (push_back)." << std::endl;
+    std::cout << "\n\t\t\t\tADD MENU" << "\n";
+    std::cout << "1. Add to the beginning (push_front)." << "\n";
+    std::cout << "2. Add to the end (push_back)." << "\n";
 }
 
 inline void showRemoveMenu()
 {
-    std::cout << "\n\t\t\t\tREMOVE MENU" << std::endl;
-    std::cout << "1. Remove from the beginning (pop_front)." << std::endl;
-    std::cout << "2. Remove from the end (pop_back)." << std::endl;
+    std::cout << "\n\t\t\t\tREMOVE MENU" << "\n";
+    std::cout << "1. Remove from the beginning (pop_front)." << "\n";
+    std::cout << "2. Remove from the end (pop_back)." << "\n";
 }
 
 void choiceRingType();

@@ -7,17 +7,17 @@ void choiceRingType()
     int choice = 0;
 
     system("clear");
-    std::cout << "\t\t\t\tTASK" << std::endl;
-    std::cout << "Implement classes Container and Iterator for a one-directional ring." << std::endl;
-    std::cout << "Implement a class Algorithm that defines methods for searching and sorting." << std::endl;
+    std::cout << "\t\t\t\tTASK" << "\n";
+    std::cout << "Implement classes Container and Iterator for a one-directional ring." << "\n";
+    std::cout << "Implement a class Algorithm that defines methods for searching and sorting." << "\n";
 
-    std::cout << "\nSelect ring element type:" << std::endl;
-    std::cout << "1. int" << std::endl;
-    std::cout << "2. long" << std::endl;
-    std::cout << "3. float" << std::endl;
-    std::cout << "4. double" << std::endl;
-    std::cout << "5. char" << std::endl;
-    std::cout << "6. string" << std::endl;
+    std::cout << "\nSelect ring element type:" << "\n";
+    std::cout << "1. int" << "\n";
+    std::cout << "2. long" << "\n";
+    std::cout << "3. float" << "\n";
+    std::cout << "4. double" << "\n";
+    std::cout << "5. char" << "\n";
+    std::cout << "6. string" << "\n";
 
     while (true)
     {
@@ -63,7 +63,7 @@ void choiceRingType()
                 return;
             }
             default:
-                std::cout << "\033[31m" << "Error, invalid choice. Please try again." << "\033[0m" << std::endl;
+                std::cout << "\033[31m" << "Error, invalid choice. Please try again." << "\033[0m" << "\n";
         }
     }
 }
