@@ -2,9 +2,8 @@
 
 int main()
 {
-    Program program;
 
-    program.run();
+    Program::run();
 
     return 0;
 }
