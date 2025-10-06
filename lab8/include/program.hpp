@@ -26,14 +26,14 @@ template <typename T> class Program
 
 template <typename T> Program<T>::Program()
 {
-    std::cout << "\033[32m" << "You successfully chose a type for ring!" << "\033[0m" << "\n";
+    std::cout  << "You successfully chose a type for ring!"  << "\n";
 }
 
 template <typename T> void Program<T>::createRing()
 {
     if (!ring.empty())
     {
-        std::cout << "\033[31m" << "Error, ring is already created!" << "\033[0m" << "\n";
+        std::cout  << "Error, ring is already created!"  << "\n";
         return;
     }
 
@@ -47,7 +47,7 @@ template <typename T> void Program<T>::createRing()
         ring.pushBack(value);
     }
 
-    std::cout << "\033[32m" << "Ring created successfully!" << "\033[0m" << "\n";
+    std::cout  << "Ring created successfully!"  << "\n";
 }
 
 template <typename T> void Program<T>::addRingElement()
@@ -67,14 +67,14 @@ template <typename T> void Program<T>::addRingElement()
         {
             case 1:
                 ring.pushFront(value);
-                std::cout << "\033[32m" << "Element added to front!" << "\033[0m" << "\n";
+                std::cout  << "Element added to front!"  << "\n";
                 return;
             case 2:
                 ring.pushBack(value);
-                std::cout << "\033[32m" << "Element added to back!" << "\033[0m" << "\n";
+                std::cout  << "Element added to back!"  << "\n";
                 return;
             default:
-                std::cout << "\033[31m" << "Wrong choice, please try again!" << "\033[0m" << "\n";
+                std::cout  << "Wrong choice, please try again!"  << "\n";
         }
     }
 }
@@ -83,7 +83,7 @@ template <typename T> void Program<T>::removeRingElement()
 {
     if (ring.empty())
     {
-        std::cout << "\033[31m" << "Error, ring is empty." << "\033[0m" << "\n";
+        std::cout  << "Error, ring is empty." << "\n";
         return;
     }
 
@@ -99,14 +99,14 @@ template <typename T> void Program<T>::removeRingElement()
         {
             case 1:
                 ring.popFront();
-                std::cout << "\033[32m" << "Front element removed!" << "\033[0m" << "\n";
+                std::cout  << "Front element removed!"  << "\n";
                 return;
             case 2:
                 ring.popBack();
-                std::cout << "\033[32m" << "Back element removed!" << "\033[0m" << "\n";
+                std::cout  << "Back element removed!" << "\n";
                 return;
             default:
-                std::cout << "\033[31m" << "Wrong choice, please try again!" << "\033[0m" << "\n";
+                std::cout  << "Wrong choice, please try again!"  << "\n";
         }
     }
 }
@@ -115,7 +115,7 @@ template <typename T> void Program<T>::showRing()
 {
     if (ring.empty())
     {
-        std::cout << "\033[31m" << "Ring is empty." << "\033[0m" << "\n";
+        std::cout  << "Ring is empty."  << "\n";
         return;
     }
 
@@ -129,25 +129,25 @@ template <typename T> void Program<T>::showRing()
     }
     std::cout << "\n";
 
-    std::cout << "\033[32m" << "You have successfully displayed the ring elements!" << "\033[0m" << "\n";
+    std::cout  << "You have successfully displayed the ring elements!"  << "\n";
 }
 
 template <typename T> void Program<T>::sortRing()
 {
     if (ring.empty())
     {
-        std::cout << "\033[31m" << "Error, ring is empty." << "\033[0m" << "\n";
+        std::cout  << "Error, ring is empty."  << "\n";
         return;
     }
 
     try
     {
         algorithm.sort(ring);
-        std::cout << "\033[32m" << "Ring sorted successfully!" << "\033[0m" << "\n";
+        std::cout  << "Ring sorted successfully!"  << "\n";
     }
     catch (const RingException &e)
     {
-        std::cout << "\033[31m" << "Sorting error: " << e.what() << "\033[0m" << "\n";
+        std::cout  << "Sorting error: " << e.what()  << "\n";
     }
 }
 
@@ -155,7 +155,7 @@ template <typename T> void Program<T>::searchRingElement()
 {
     if (ring.empty())
     {
-        std::cout << "\033[31m" << "Error, ring is empty." << "\033[0m" << "\n";
+        std::cout  << "Error, ring is empty."  << "\n";
         return;
     }
 
@@ -166,16 +166,16 @@ template <typename T> void Program<T>::searchRingElement()
     {
         if (algorithm.find(ring, value))
         {
-            std::cout << "\033[32m" << "Element found!" << "\033[0m" << "\n";
+            std::cout  << "Element found!"  << "\n";
         }
         else
         {
-            std::cout << "\033[31m" << "Element not found." << "\033[0m" << "\n";
+            std::cout  << "Element not found."  << "\n";
         }
     }
     catch (const RingException &e)
     {
-        std::cout << "\033[31m" << "Search error: " << e.what() << "\033[0m" << "\n";
+        std::cout  << "Search error: " << e.what()  << "\n";
     }
 }
 
@@ -183,12 +183,12 @@ template <typename T> void Program<T>::clearRing()
 {
     if (ring.empty())
     {
-        std::cout << "\033[31m" << "Ring is already empty." << "\033[0m" << "\n";
+        std::cout  << "Ring is already empty."  << "\n";
         return;
     }
 
     ring.clear();
-    std::cout << "\033[32m" << "Ring cleared successfully!" << "\033[0m" << "\n";
+    std::cout  << "Ring cleared successfully!"  << "\n";
 }
 
 template <typename T> void Program<T>::run()
@@ -227,10 +227,10 @@ template <typename T> void Program<T>::run()
                 break;
 
             case 9:
-                std::cout << "\033[32m" << "Program exited successfully." << "\033[0m" << "\n";
+                std::cout  << "Program exited successfully."  << "\n";
                 return;
             default:
-                std::cout << "\033[31m" << "Invalid option. Try again." << "\033[0m" << "\n";
+                std::cout  << "Invalid option. Try again."  << "\n";
         }
     }
 }
