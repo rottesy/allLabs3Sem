@@ -4,14 +4,14 @@
 
 class RingException : public std::runtime_error {
 public:
-    explicit RingException(const std::string& message) 
-        : std::runtime_error(message) {}
+    
+    using std::runtime_error::runtime_error;
 };
 
 class IteratorException : public RingException {
 public:
-    explicit IteratorException(const std::string& message) 
-        : RingException("Iterator error: " + message) {}
+   
+    using RingException::RingException;
 };
 
 class EmptyRingException : public RingException {
