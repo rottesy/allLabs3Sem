@@ -158,7 +158,7 @@ template <typename T> class Ring
         return *this;
     }
 
-    Ring &operator=(Ring &&move)
+    Ring &operator=(Ring &&move) noexcept
     {
         if (this == &move)
             return *this;
