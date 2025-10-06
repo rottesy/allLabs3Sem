@@ -15,16 +15,20 @@ class Product
 
     friend std::ostream &operator<<(std::ostream &ostm, const Product &product)
     {
-        ostm << product.name << " " << product.quantity << " " << product.price << " " << product.receiptDate;
+        ostm << product.name << "|" << product.quantity << " " << product.price << " " << product.receiptDate;
 
         return ostm;
     }
 
-    friend std::istream &operator>>(std::istream &istm, Product &product)
-    {
-
-        istm >> product.name >> product.quantity >> product.price >> product.receiptDate;
-
+     friend std::istream &operator>>(std::istream &istm, Product &product) {
+        
+        std::getline(istm, product.name, '|');
+       
+        istm >> product.quantity >> product.price >> product.receiptDate;
+       
+        if (istm.peek() == ' ') {
+            istm.ignore();
+        }
         return istm;
     }
 

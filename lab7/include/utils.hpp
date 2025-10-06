@@ -8,22 +8,49 @@
 template <typename T> T getValue(const std::string &msg)
 {
     T value;
+    int sym = 0;
 
     std::cout << msg;
 
     while (true)
     {
-        if (std::cin >> value)
+        if (std::cin.peek() != '\n' && std::cin.peek() != ' ' && (std::cin >> value).good())
         {
-
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            return value;
+            sym = std::cin.peek();
+            if ((char)sym == '\n' || (char)sym == EOF)
+            {
+                std::cin.get();
+                return value;
+            }
         }
 
         std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        while (std::cin.get() != '\n' && !std::cin.eof())
+            ;
         std::cout << kRedColor << "\nError, invalid input. Please try again: " << kWhiteColor;
     }
+}
+
+template <>
+inline std::string getValue<std::string>(const std::string &msg) {
+    std::string value;
+    std::cout << msg;
+    
+    
+    if (std::cin.peek() == '\n') {
+        std::cin.ignore();
+    }
+    
+    std::getline(std::cin, value);  
+    
+   
+    if (value.empty()) {
+        std::cout << kRedColor << "Error: string cannot be empty. Please try again: " << kWhiteColor;
+        
+        return getValue<std::string>(msg);
+    }
+    
+    return value;
 }
 
 template <typename T> bool isValidFileOpen(T &file, const std::string &fileName)

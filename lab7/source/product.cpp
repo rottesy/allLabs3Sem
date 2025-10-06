@@ -36,26 +36,33 @@ void Product::add()
     *this = tmp;
 }
 
-void Product::showAll()
-{
+void Product::showAll() {
     std::ifstream fileIn;
     fileIn.open(kFileWithProducts);
 
     Product tmp;
 
-    if (!isValidFileOpen(fileIn, kFileWithProducts))
-    {
+    if (!isValidFileOpen(fileIn, kFileWithProducts)) {
         return;
     }
 
     std::cout << "\n\t\t\t\tPRODUCTS LIST" << "\n";
-    std::cout << "Name\t\tQuantity\tPrice\t\tReceipt Date" << "\n";
-    std::cout << "--------------------------------------------------------" << "\n";
+    
+   
+    std::cout << std::left 
+              << std::setw(25) << std::setfill(' ') << "Name" 
+              << std::setw(12) << std::setfill(' ') << "Quantity" 
+              << std::setw(12) << std::setfill(' ') << "Price" 
+              << std::setw(15) << std::setfill(' ') << "Receipt Date" << "\n";
+    std::cout << "------------------------------------------------------------" << "\n";
 
-    while (fileIn >> tmp)
-    {
-
-        std::cout << tmp.name << "\t\t" << tmp.quantity << "\t\t" << tmp.price << "\t\t" << tmp.receiptDate << "\n";
+    while (fileIn >> tmp) {
+        
+        std::cout << std::left 
+                  << std::setw(25) << std::setfill(' ') << (tmp.name.length() > 24 ? tmp.name.substr(0, 22) + ".." : tmp.name)
+                  << std::setw(12) << std::setfill(' ') << tmp.quantity 
+                  << std::setw(12) << std::setfill(' ') << tmp.price 
+                  << std::setw(15) << std::setfill(' ') << tmp.receiptDate << "\n";
     }
 
     fileIn.close();
