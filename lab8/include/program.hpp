@@ -7,7 +7,7 @@
 template <typename T> class Program
 {
     Ring<T> ring;
-    Algorithm<T> algorithm;
+    [[no_unique_address]] Algorithm<T> algorithm;
 
     void createRing();
     void addRingElement();

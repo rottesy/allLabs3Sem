@@ -4,7 +4,7 @@ template <typename T> class Node
 {
   public:
     T data;
-    Node *next;
+    Node *next = nullptr;
 
-    Node(const T &value) : data(value), next(nullptr) {}
+    explicit Node(const T &value) : data(value) {}
 };

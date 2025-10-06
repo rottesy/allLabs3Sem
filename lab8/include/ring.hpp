@@ -167,7 +167,7 @@ template <typename T> class Ring
 
     Iterator insert(Iterator pos, const T &value)
     {
-        Node<T> *newNode = new Node<T>(value);
+        auto *newNode = new Node<T>(value);
 
         if (empty())
         {
@@ -319,7 +319,7 @@ template <typename T> class Ring
 
     void push_back(const T &value)
     {
-        Node<T> *newNode = new Node<T>(value);
+        auto *newNode = new Node<T>(value);
 
         if (empty())
         {
@@ -341,7 +341,7 @@ template <typename T> class Ring
 
     void push_front(const T &value)
     {
-        Node<T> *newNode = new Node<T>(value);
+        auto *newNode = new Node<T>(value);
 
         if (empty())
         {
