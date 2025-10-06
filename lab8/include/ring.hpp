@@ -51,7 +51,7 @@ template <typename T> class Ring
 
             for (size_t j = 0; j < size - i - 1; j++)
             {
-                
+
                 if (Node<T> *nextNode = current->next; current->data > nextNode->data)
                 {
                     std::swap(current->data, nextNode->data);
@@ -113,7 +113,7 @@ template <typename T> class Ring
 
         bool operator==(const Iterator &other) const { return ptr == other.ptr; }
 
-        bool operator!=(const Iterator &other) const { return !(*this == other); }
+        
 
         bool completedCycle() const { return ptr == start && iterations > 0; }
 
@@ -146,18 +146,7 @@ template <typename T> class Ring
         move.size = 0;
     }
 
-    ~Ring()
-    {
-        try
-        {
-            clear();
-        }
-        catch (...)
-        {
-            head = nullptr;
-            size = 0;
-        }
-    }
+    ~Ring() { clear(); }
 
     Ring &operator=(const Ring &other)
     {
@@ -169,7 +158,7 @@ template <typename T> class Ring
         return *this;
     }
 
-    Ring &operator=(Ring &&move) 
+    Ring &operator=(Ring &&move)
     {
         if (this == &move)
             return *this;
@@ -201,8 +190,6 @@ template <typename T> class Ring
         }
         return true;
     }
-
-    bool operator!=(const Ring &other) const { return !(*this == other); }
 
     bool empty() const { return size == 0; }
     size_t getSize() const { return size; }
@@ -312,11 +299,37 @@ template <typename T> class Ring
         return Iterator(nextNode, size);
     }
 
-    void clear()
+    void clear() noexcept
     {
-        while (!empty())
+        while (head != nullptr)
         {
-            pop_front();
+            Node<T> *temp = head;
+
+            if (size == 1)
+            {
+                head = nullptr;
+            }
+            else
+            {
+                Node<T> *tail = head;
+                for (size_t i = 1; i < size; i++)
+                {
+                    tail = tail->next;
+                }
+                head = head->next;
+                tail->next = head;
+
+                if (head->next == head)
+                {
+                    delete temp;
+                    head = nullptr;
+                    size = 0;
+                    return;
+                }
+            }
+
+            delete temp;
+            size--;
         }
     }
 
