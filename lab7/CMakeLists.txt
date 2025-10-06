@@ -15,4 +15,9 @@ include_directories(include)
 
 add_executable(app
     source/main.cpp
+    source/data.cpp
+    source/product.cpp
+    source/program.cpp
+    source/utils.cpp
+    source/menu.cpp
 )
