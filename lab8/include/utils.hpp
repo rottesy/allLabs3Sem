@@ -9,7 +9,7 @@ template <typename T> T getValue()
     {
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "\033[31m" << "Invalid input. Try again: " << "\033[0m";
+        std::cout  << "Invalid input. Try again: " ;
     }
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return value;
