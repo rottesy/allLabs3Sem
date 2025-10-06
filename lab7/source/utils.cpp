@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <fstream>
 #include <iostream>
+#include <cctype>
 
 bool isDigits(const std::string &str, const int pos, const int len)
 {
@@ -17,10 +18,6 @@ bool isDigits(const std::string &str, const int pos, const int len)
     return true;
 }
 
-bool isDigits(const std::string_view &str)
-{
-    return std::all_of(str.begin(), str.end(), [](unsigned char sym) { return std::isdigit(sym); });
-}
 
 bool isFileEmpty(const std::string &filename)
 {

@@ -39,7 +39,7 @@ template <typename T> bool isValidFileOpen(T &file, const std::string &fileName)
 }
 
 bool isDigits(const std::string &str, int pos, int len);
-bool isDigits(const std::string_view &str);
 
-// Функция для проверки пустоты файла
+
+
 bool isFileEmpty(const std::string &filename);

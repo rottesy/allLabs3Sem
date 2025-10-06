@@ -6,7 +6,7 @@
 #include "../include/menu.hpp"
 #include "../include/utils.hpp"
 
-Program::Program() {}
+Program::Program() = default;
 
 void Program::addProduct()
 {
