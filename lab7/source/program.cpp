@@ -56,14 +56,13 @@ void Program::displayQuantityByYear()
 
 void Program::run()
 {
-    system("clear");
-
-    showTaskMenu();
+    system("cls");
 
     int opt = 0;
 
     while (true)
     {
+        showTaskMenu();
         opt = getValue<int>("\nPlease enter menu option: ");
 
         switch (opt)

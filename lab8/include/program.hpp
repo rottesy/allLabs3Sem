@@ -190,12 +190,12 @@ template <typename T> void Program<T>::clearRing()
 
 template <typename T> void Program<T>::run()
 {
-    showMenu();
 
     int opt = 0;
 
     while (true)
     {
+        showMenu();
         std::cout << "Please enter menu option: ";
         opt = getValue<int>();
 
